@@ -1,0 +1,113 @@
+@import 'tailwindcss';
+@import 'flowbite/src/themes/default';
+
+/* Global base styles for light/dark mode (CSS fallbacks) */
+/* Page background and text */
+body {
+  background-color: #f9fafb; /* Tailwind bg-gray-50 */
+  color: #1f2937; /* Tailwind text-gray-800 */
+}
+
+/* Dark mode overrides when .dark is present on <html> */
+html.dark body {
+  background-color: #0f172a; /* Tailwind bg-gray-900 */
+  color: #e5e7eb; /* Tailwind text-gray-200 */
+}
+
+/* Links */
+a {
+  color: #2563eb;
+} /* text-blue-600 */
+html.dark a {
+  color: #60a5fa;
+} /* text-blue-400 */
+
+/* Headings default colors */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #111827;
+}
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+  color: #ffffff;
+}
+
+/* Forzar a Tailwind a incluir las clases dinámicas de grid usadas en el kanban */
+/* (estas clases se usan en los templates y deberían ser incluidas por Tailwind en producción) */
+
+/* Ensure cards follow light/dark backgrounds even if other utilities are missing */
+.card-root {
+  background-color: #ffffff; /* bg-white */
+  border-color: #e5e7eb; /* border-gray-200 */
+  color: #111827; /* text-gray-900 */
+}
+html.dark .card-root {
+  background-color: #1f2937; /* gray-800 */
+  border-color: #374151; /* gray-700 */
+  color: #f9fafb; /* gray-50 */
+}
+
+/* CSS variables fallback approach */
+:root {
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --card-color: #111827;
+}
+html.dark {
+  --card-bg: #1f2937;
+  --card-border: #374151;
+  --card-color: #f9fafb;
+}
+
+/* Page background variables */
+:root {
+  --page-bg: #f9fafb; /* bg-gray-50 */
+  --page-color: #1f2937; /* text-gray-800 */
+}
+html.dark {
+  --page-bg: #0f172a; /* bg-gray-900 */
+  --page-color: #e5e7eb; /* text-gray-200 */
+}
+
+/* Navbar variables */
+:root {
+  --navbar-bg: #ffffff; /* bg-white */
+  --navbar-color: #111827; /* text-gray-900 */
+  --navbar-border: #e5e7eb; /* border-gray-200 */
+}
+html.dark {
+  --navbar-bg: #0b1220; /* slightly darker than gray-900 */
+  --navbar-color: #e5e7eb; /* text-gray-200 */
+  --navbar-border: #374151; /* gray-700 */
+}
+
+/* Desktop-only: ensure the collapsed/mobile menu's background doesn't cover the navbar on md+ screens */
+@media (min-width: 768px) {
+  /* Make the inner menu container and anchors transparent so the nav root background shows */
+  nav #navbar-sticky,
+  nav #navbar-sticky ul,
+  nav #navbar-sticky li,
+  nav #navbar-sticky a {
+    background-color: transparent !important;
+    border-color: transparent !important;
+  }
+}
+
+/* Remove visible focus ring for the theme toggle button but preserve keyboard focus via focus-visible outline if needed */
+.no-focus-ring:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+.no-focus-ring:focus-visible {
+  /* keep a subtle outline for keyboard users; adjust or remove if you prefer */
+  outline: 2px solid rgba(59, 130, 246, 0.25);
+  outline-offset: 2px;
+}

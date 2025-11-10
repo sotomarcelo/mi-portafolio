@@ -1,0 +1,120 @@
+---
+import Layout from '../Layout.astro';
+import Card from '../components/Card.astro';
+import CarruselTechs from '../components/CarruselTechs.astro';
+import '../styles/global.css';
+---
+
+<Layout>
+  <section
+    class="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 py-4 pt-24"
+    style={`min-height:unset;height:100vh;background-color: var(--page-bg); color: var(--page-color);`}
+  >
+    <!-- Título eliminado por solicitud del usuario -->
+    <div
+      class="grid grid-cols-1 grid-rows-10 gap-2 w-full max-w-7xl px-4
+      sm:grid-cols-12 sm:grid-rows-10"
+      style="height:75vh;min-height:400px;max-height:700px;"
+    >
+      <Card
+        title="Experiencia"
+        colorClass="border-pink-400 dark:border-pink-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-7 sm:col-span-6 sm:row-start-1 sm:row-span-4"
+      >
+        <!-- Default slot: contenido del card -->
+        <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-2 mt-2">
+          <li class="mb-4 ms-4">
+            <div
+              class="absolute w-3 h-3 bg-blue-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-blue-600 dark:border-gray-900"
+            >
+            </div>
+            <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+              >2022 - Actualidad</time
+            >
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">
+              Desarrollador Web Fullstack
+            </p>
+          </li>
+          <li class="mb-4 ms-4">
+            <div
+              class="absolute w-3 h-3 bg-pink-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-pink-600 dark:border-gray-900"
+            >
+            </div>
+            <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+              >2021 - 2022</time
+            >
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">Frontend Developer</p>
+          </li>
+          <li class="ms-4">
+            <div
+              class="absolute w-3 h-3 bg-green-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-green-600 dark:border-gray-900"
+            >
+            </div>
+            <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+              >2020 - 2021</time
+            >
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">
+              Prácticas y primeros proyectos
+            </p>
+          </li>
+        </ol>
+
+        <!-- Botón fijo en la esquina inferior derecha del card (no desenfocado) -->
+        <div slot="overlay">
+          <a
+            href="/experiencia"
+            class="absolute bottom-6 right-6 z-20 inline-flex items-center gap-2 px-3 py-1.5 bg-gray-100 text-gray-800 border border-gray-200 rounded-md shadow-sm hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-300 dark:bg-gray-800 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-label="Ver más experiencia"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-4 h-4"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+            <span>Ver más experiencia</span>
+          </a>
+        </div>
+      </Card>
+
+      <!-- C: Proyectos -->
+      <Card
+        title="Proyectos"
+        colorClass="border-green-400 dark:border-green-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-1 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        content="Algunos de mis proyectos destacados en desarrollo web, aplicaciones y más."
+        showButton={true}
+        buttonText="Ver proyectos"
+        buttonHref="#proyectos"
+      />
+      <!-- D: Contacto -->
+      <Card
+        title="Contáctame"
+        colorClass="border-yellow-400 dark:border-yellow-500 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-5 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        content="¿Tienes un proyecto o quieres colaborar? Escríbeme y conversemos sobre cómo puedo ayudar."
+        showButton={true}
+        buttonText="Ir a contacto"
+        buttonHref="#contactame"
+      />
+      <!-- E: 2x2 -->
+      <Card
+        title="E"
+        colorClass="border-purple-400 dark:border-purple-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-9 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        content="Columna E"
+      />
+      <!-- F: 6x1 -->
+      <Card
+        title="Tecnologías"
+        colorClass="border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-1 sm:col-span-12 sm:row-start-9 sm:row-span-2"
+      >
+        <div class="w-full sm:pb-8">
+          <CarruselTechs />
+        </div>
+      </Card>
+    </div>
+  </section>
+</Layout>

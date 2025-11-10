@@ -1,0 +1,85 @@
+---
+import { Icon } from 'astro-icon/components';
+const iconList = [
+  { name: 'react', file: 'react.svg', color: 'text-sky-400 dark:text-sky-300' },
+  { name: 'nextjs', file: 'nextjs.svg', color: 'text-black dark:text-white' },
+  { name: 'astro', file: 'astro.svg', color: 'text-orange-400 dark:text-orange-300' },
+  { name: 'python', file: 'python.svg', color: 'text-yellow-400 dark:text-yellow-300' },
+  { name: 'mongodb', file: 'mongodb.svg', color: 'text-green-600 dark:text-green-400' },
+  { name: 'postgresql', file: 'postgresql.svg', color: 'text-blue-700 dark:text-blue-400' },
+  { name: 'django', file: 'django.svg', color: 'text-green-700 dark:text-green-300' },
+  { name: 'html5', file: 'html5.svg', color: 'text-orange-500 dark:text-orange-300' },
+  { name: 'css3', file: 'css3.svg', color: 'text-blue-600 dark:text-blue-400' },
+  { name: 'tailwindcss', file: 'tailwindcss.svg', color: 'text-sky-400 dark:text-sky-300' },
+  {
+    name: 'elasticsearch',
+    file: 'elasticsearch.svg',
+    color: 'text-orange-500 dark:text-orange-300',
+  },
+  { name: 'jupyter', file: 'jupyter.svg', color: 'text-orange-500 dark:text-orange-300' },
+];
+---
+
+<div
+  class="overflow-hidden w-full py-2 flex items-center justify-center"
+  style="min-height:4.5rem;max-height:3.5rem;"
+>
+  <div class="relative w-full h-16">
+    <div
+      class="absolute top-0 left-0 flex animate-marquee gap-8 text-3xl sm:text-4xl whitespace-nowrap w-max"
+    >
+      {
+        iconList.map((item) => (
+          <div
+            class="hover:scale-110 transition-transform flex items-center justify-center dark:filter-none"
+            style="min-width:3.5rem;"
+          >
+            {item.file ? (
+              <img
+                src={`/icons/${item.file}`}
+                alt={item.name}
+                class={`w-10 h-10 sm:w-12 sm:h-12 ${item.color}`}
+                loading="lazy"
+              />
+            ) : (
+              <Icon name={item.name} class={`w-10 h-10 sm:w-12 sm:h-12 ${item.color}`} />
+            )}
+          </div>
+        ))
+      }
+      {
+        iconList.map((item) => (
+          <div
+            class="hover:scale-110 transition-transform flex items-center justify-center"
+            style="min-width:3.5rem;"
+          >
+            {item.file ? (
+              <img
+                src={`/icons/${item.file}`}
+                alt={item.name}
+                class={`w-10 h-10 sm:w-12 sm:h-12 ${item.color}`}
+                loading="lazy"
+              />
+            ) : (
+              <Icon name={item.name} class={`w-10 h-10 sm:w-12 sm:h-12 ${item.color}`} />
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-marquee {
+    animation: marquee 28s linear infinite;
+  }
+</style>

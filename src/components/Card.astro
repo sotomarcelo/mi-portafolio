@@ -1,0 +1,47 @@
+---
+export interface Props {
+  title?: string;
+  colorClass?: string;
+  content?: string;
+  showButton?: boolean;
+  buttonText?: string;
+  buttonHref?: string;
+}
+const {
+  title = '',
+  colorClass = '',
+  content = '',
+  showButton = false,
+  buttonText = 'Ver más',
+  buttonHref = '#',
+} = Astro.props;
+---
+
+<div
+  class={`card-root relative h-full w-full p-4 border rounded-lg shadow-sm bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between ${colorClass}`}
+  style={`background-color: var(--card-bg); border-color: var(--card-border); color: var(--card-color);`}
+>
+  <!-- Inner content wrapper -->
+  <div class="card-inner">
+    <div>
+      {title ? (
+        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+      ) : null}
+      {content ? <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{content}</p> : null}
+      <slot />
+    </div>
+    {
+      showButton && (
+        <a
+          href={buttonHref}
+          class="mt-2 inline-block px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm text-center transition-colors dark:bg-blue-500 dark:hover:bg-blue-600"
+        >
+          {buttonText}
+        </a>
+      )
+    }
+  </div>
+
+  <!-- Named slot for overlays that must not be blurred (e.g., hover CTA) -->
+  <slot name="overlay" />
+</div>

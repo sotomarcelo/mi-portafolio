@@ -1,0 +1,148 @@
+---
+import Navbar from './components/Navbar.astro';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Mi Portafolio</title>
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      (function () {
+        try {
+          var stored = localStorage.getItem('color-theme');
+          if (
+            stored === 'dark' ||
+            (stored === null && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          ) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {
+          // localStorage might be unavailable in some environments (privacy modes)
+          // fallback to prefers-color-scheme
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+          }
+        }
+      })();
+    </script>
+  </head>
+  <body
+    class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200"
+    style={`background-color: var(--page-bg); color: var(--page-color);`}
+  >
+    <Navbar />
+    <script>
+      // Initialize theme toggle: attach handlers and set initial icon state
+      (function () {
+        function initThemeToggle() {
+          try {
+            var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+            var themeToggleBtn = document.getElementById('theme-toggle');
+            if (!themeToggleDarkIcon || !themeToggleLightIcon || !themeToggleBtn) {
+              // Elements not yet in DOM
+              // console.debug('Theme toggle: elements not found yet');
+              return false;
+            }
+
+            var stored = null;
+            try {
+              stored = localStorage.getItem('color-theme');
+            } catch (e) {
+              stored = null;
+            }
+
+            // Set initial icon state
+            if (
+              stored === 'dark' ||
+              (stored === null &&
+                window.matchMedia &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches)
+            ) {
+              themeToggleLightIcon.classList.remove('hidden');
+            } else {
+              themeToggleDarkIcon.classList.remove('hidden');
+            }
+            console.log(
+              '[theme] init: html has dark=',
+              document.documentElement.classList.contains('dark'),
+              ' local=',
+              stored
+            );
+
+            // Attach click handler
+            themeToggleBtn.addEventListener('click', function () {
+              if (themeToggleDarkIcon && themeToggleDarkIcon.classList)
+                themeToggleDarkIcon.classList.toggle('hidden');
+              if (themeToggleLightIcon && themeToggleLightIcon.classList)
+                themeToggleLightIcon.classList.toggle('hidden');
+
+              try {
+                var current = localStorage.getItem('color-theme');
+                if (current) {
+                  if (current === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                  }
+                } else {
+                  if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                  } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                  }
+                }
+              } catch (e) {
+                // localStorage may be unavailable; toggle the class only
+                if (document.documentElement.classList.contains('dark')) {
+                  document.documentElement.classList.remove('dark');
+                } else {
+                  document.documentElement.classList.add('dark');
+                }
+              }
+              console.log(
+                '[theme] click: html has dark=',
+                document.documentElement.classList.contains('dark'),
+                ' local=',
+                (function () {
+                  try {
+                    return localStorage.getItem('color-theme');
+                  } catch (e) {
+                    return 'err';
+                  }
+                })()
+              );
+            });
+
+            // success
+            // console.debug('Theme toggle: initialized');
+            return true;
+          } catch (err) {
+            console.error('Theme toggle init error:', err);
+            return false;
+          }
+        }
+
+        // If DOM already parsed, try to init immediately; otherwise wait for DOMContentLoaded
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function () {
+            // try init; if elements not ready yet, ignore
+            initThemeToggle();
+          });
+        } else {
+          // document already parsed
+          initThemeToggle();
+        }
+      })();
+    </script>
+    <slot />
+  </body>
+</html>
