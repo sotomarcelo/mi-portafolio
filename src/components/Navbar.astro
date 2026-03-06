@@ -6,10 +6,10 @@ const isExperiencia = pathname.startsWith('/experiencia');
 const isProyectos = pathname.startsWith('/proyectos');
 
 const linkClass = (isActive: boolean) =>
-  `block py-2 px-3 rounded-sm md:p-0 transition-colors ${
+  `block py-2 px-3 rounded-md md:p-0 transition-colors ${
     isActive
-      ? 'text-blue-700 dark:text-blue-400 font-semibold'
-      : 'text-gray-900 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500'
+      ? 'text-blue-700 dark:text-blue-400 font-bold'
+      : 'text-slate-800 hover:text-blue-600 dark:text-slate-200 dark:hover:text-blue-400 font-medium'
   }`;
 ---
 
@@ -89,23 +89,14 @@ const linkClass = (isActive: boolean) =>
             <a
               href="/experiencia"
               class={linkClass(isExperiencia)}
-              aria-current={isExperiencia ? 'page' : undefined}
-              >Experiencia</a
+              aria-current={isExperiencia ? 'page' : undefined}>Experiencia</a
             >
           </li>
           <li>
             <a
               href="/proyectos"
               class={linkClass(isProyectos)}
-              aria-current={isProyectos ? 'page' : undefined}
-              >Proyectos</a
-            >
-          </li>
-          <li>
-            <a
-              href="/inicio#contactame"
-              class={linkClass(false)}
-              >Contactame</a
+              aria-current={isProyectos ? 'page' : undefined}>Proyectos</a
             >
           </li>
         </ul>

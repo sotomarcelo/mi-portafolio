@@ -26,13 +26,15 @@ const {
   <!-- Inner content wrapper -->
   <div class="card-inner">
     <div>
-      {title ? (
-        <div class="mb-2 flex items-center justify-between gap-2">
-          <h5 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
-          <slot name="title-action" />
-        </div>
-      ) : null}
-      {content ? <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{content}</p> : null}
+      {
+        title ? (
+          <div class="mb-2 flex items-center justify-between gap-2">
+            <h5 class="text-xl font-bold tracking-tight text-black dark:text-white">{title}</h5>
+            <slot name="title-action" />
+          </div>
+        ) : null
+      }
+      {content ? <p class="mb-3 font-normal text-black dark:text-gray-400">{content}</p> : null}
       <slot />
     </div>
     {
