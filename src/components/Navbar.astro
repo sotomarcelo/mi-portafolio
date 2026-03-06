@@ -1,3 +1,19 @@
+---
+const pathname = Astro.url.pathname;
+
+const isInicio = pathname === '/' || pathname === '/inicio' || pathname === '/home';
+const isExperiencia = pathname.startsWith('/experiencia');
+const isProyectos = pathname.startsWith('/proyectos');
+const isContactame = pathname.startsWith('/contactame');
+
+const linkClass = (isActive: boolean) =>
+  `block py-2 px-3 rounded-sm md:p-0 transition-colors ${
+    isActive
+      ? 'text-blue-700 dark:text-blue-400 font-semibold'
+      : 'text-gray-900 md:hover:text-blue-700 dark:text-white md:dark:hover:text-blue-500'
+  }`;
+---
+
 <nav
   class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
   style={`background-color: var(--navbar-bg); color: var(--navbar-color); border-color: var(--navbar-border);`}
@@ -66,28 +82,31 @@
           <li>
             <a
               href="/inicio"
-              class="block py-2 px-3 text-gray-900 rounded-sm md:hover:text-blue-700 md:p-0 md:dark:text-blue-500 dark:text-white md:dark:bg-transparent"
-              aria-current="page">Inicio</a
+              class={linkClass(isInicio)}
+              aria-current={isInicio ? 'page' : undefined}>Inicio</a
             >
           </li>
           <li>
             <a
               href="/experiencia"
-              class="block py-2 px-3 text-gray-900 rounded-sm md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white md:dark:bg-transparent"
+              class={linkClass(isExperiencia)}
+              aria-current={isExperiencia ? 'page' : undefined}
               >Experiencia</a
             >
           </li>
           <li>
             <a
-              href="#"
-              class="block py-2 px-3 text-gray-900 rounded-sm md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white md:dark:bg-transparent"
+              href="/proyectos"
+              class={linkClass(isProyectos)}
+              aria-current={isProyectos ? 'page' : undefined}
               >Proyectos</a
             >
           </li>
           <li>
             <a
-              href="#"
-              class="block py-2 px-3 text-gray-900 rounded-sm md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white md:dark:bg-transparent"
+              href="/contactame"
+              class={linkClass(isContactame)}
+              aria-current={isContactame ? 'page' : undefined}
               >Contactame</a
             >
           </li>
@@ -97,10 +116,10 @@
 
     <!-- Right: Descargar CV -->
     <div class="flex items-center md:order-3">
-      <button
-        type="button"
+      <a
+        href="/experiencia"
         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >Descargar CV</button
+        >Ver CV</a
       >
     </div>
   </div>

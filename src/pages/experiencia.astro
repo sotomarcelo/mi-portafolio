@@ -4,141 +4,191 @@ import '../styles/global.css';
 ---
 
 <Layout>
-  <section class="pt-28 pb-16 max-w-4xl mx-auto px-4">
-    <header class="mb-8">
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">Mi experiencia</h1>
-      <p class="mt-2 text-gray-600 dark:text-gray-300">
-        Ingeniero Civil en Informatica con experiencia en desarrollo de software full stack y
-        trabajo con datos, enfocado en construir soluciones practicas y reproducibles.
-      </p>
-    </header>
+  <section class="relative isolate overflow-hidden pt-28 pb-16 px-4">
+    <div class="pointer-events-none absolute inset-0 -z-10">
+      <div
+        class="absolute -top-12 -left-16 h-72 w-72 rounded-full bg-cyan-300/20 blur-3xl dark:bg-cyan-500/15"
+      >
+      </div>
+      <div
+        class="absolute -bottom-16 -right-12 h-80 w-80 rounded-full bg-teal-300/20 blur-3xl dark:bg-blue-500/15"
+      >
+      </div>
+    </div>
 
-    <article class="space-y-8">
-      <section>
-        <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Perfil profesional</h2>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">
-          He trabajado con Python, Django, bases de datos y pipelines de datos, integrando sistemas
-          y automatizando procesos. Me caracteriza la curiosidad, el aprendizaje continuo y el
-          enfoque en resolver desafios reales.
+    <div class="mx-auto max-w-5xl space-y-8">
+      <header class="rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-sm backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/55">
+        <p class="text-xs font-semibold uppercase tracking-[0.22em] text-slate-600 dark:text-slate-400">
+          Perfil profesional
         </p>
-      </section>
+        <h1 class="mt-2 text-3xl md:text-4xl font-bold leading-tight text-slate-900 dark:text-white">
+          Experiencia en desarrollo, datos y automatizacion de procesos
+        </h1>
+        <p class="mt-3 max-w-3xl text-slate-700 dark:text-slate-300">
+          Ingeniero Civil en Informatica con experiencia en desarrollo full stack y trabajo con
+          datos, enfocado en construir soluciones practicas, reproducibles y orientadas a impacto.
+        </p>
 
-      <section>
-        <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Educacion</h2>
-        <div class="mt-3 rounded-lg border border-gray-200/80 dark:border-gray-700/80 p-4">
-          <p class="font-medium text-gray-900 dark:text-white">
-            Ingeniero Civil en Informatica - Universidad Austral de Chile, Valdivia
-          </p>
-          <p class="text-sm text-gray-600 dark:text-gray-300">2023</p>
+        <div class="mt-5 flex flex-wrap gap-2">
+          <span class="rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-800 dark:border-cyan-800/60 dark:bg-cyan-950/40 dark:text-cyan-200">
+            Python + Django
+          </span>
+          <span class="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800 dark:border-emerald-800/60 dark:bg-emerald-950/40 dark:text-emerald-200">
+            SQL + PostgreSQL
+          </span>
+          <span class="rounded-full border border-indigo-200 bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-800 dark:border-indigo-800/60 dark:bg-indigo-950/40 dark:text-indigo-200">
+            ETL + NLP
+          </span>
+          <span class="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-medium text-amber-800 dark:border-amber-800/60 dark:bg-amber-950/40 dark:text-amber-200">
+            Power BI + reporting
+          </span>
         </div>
-      </section>
+      </header>
 
-      <section>
-        <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Experiencia laboral</h2>
+      <article class="grid gap-6 lg:grid-cols-[300px_1fr]">
+        <aside class="space-y-4 lg:sticky lg:top-28 lg:self-start">
+          <section class="rounded-2xl border border-slate-200/70 bg-white/70 p-5 shadow-sm backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/55">
+            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">Educacion</h2>
+            <p class="mt-3 text-sm font-medium text-slate-800 dark:text-slate-200">
+              Ingeniero Civil en Informatica
+            </p>
+            <p class="text-sm text-slate-700 dark:text-slate-300">
+              Universidad Austral de Chile, Valdivia
+            </p>
+            <p class="mt-2 inline-flex rounded-md bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+              Titulado 2023
+            </p>
+          </section>
 
-        <div class="mt-4 space-y-5">
-          <div class="rounded-lg border border-gray-200/80 dark:border-gray-700/80 p-4">
-            <h3 class="font-semibold text-gray-900 dark:text-white">
-              Ingeniero de Desarrollo - Innovex SpA, Valdivia
-            </h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300">nov. 2024 - Actualidad</p>
-            <ul class="mt-3 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Construccion de APIs y pipelines de datos en Django y Python.</li>
-              <li>Integracion y manipulacion de bases de datos relacionales con PostgreSQL y SQL.</li>
-              <li>
-                Desarrollo de funcionalidades en Python, incluyendo validacion, limpieza y
-                transformacion de datos.
-              </li>
-              <li>
-                Colaboracion interdisciplinaria con equipos de producto y QA, con documentacion y
-                analisis tecnico.
-              </li>
+          <section class="rounded-2xl border border-slate-200/70 bg-white/70 p-5 shadow-sm backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/55">
+            <h2 class="text-lg font-semibold text-slate-900 dark:text-white">Stack principal</h2>
+            <ul class="mt-3 space-y-2 text-sm text-slate-700 dark:text-slate-300">
+              <li>Python, Django, APIs REST</li>
+              <li>SQL, PostgreSQL, modelado de datos</li>
+              <li>pandas, NumPy, scikit-learn</li>
+              <li>Power BI y visualizacion ejecutiva</li>
             </ul>
-          </div>
+          </section>
+        </aside>
 
-          <div class="rounded-lg border border-gray-200/80 dark:border-gray-700/80 p-4">
-            <h3 class="font-semibold text-gray-900 dark:text-white">
-              Analista de Datos y Optimizacion de Procesos - EQUANS, Osorno
-            </h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300">sep. 2023 - jun. 2024</p>
-            <ul class="mt-3 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Analisis exploratorio (EDA) para optimizar rutas y eficiencia de cuadrillas.</li>
-              <li>Limpieza, normalizacion y feature engineering con SQL y Python.</li>
-              <li>Diseno de dashboards y reportes en Power BI para jefaturas no tecnicas.</li>
-              <li>Identificacion de patrones con analisis estadistico para decisiones operativas.</li>
-              <li>Sistema de trazabilidad de datos integrando multiples fuentes.</li>
-            </ul>
-          </div>
+        <section class="rounded-2xl border border-slate-200/70 bg-white/65 p-5 shadow-sm backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/50">
+          <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Experiencia laboral</h2>
 
-          <div class="rounded-lg border border-gray-200/80 dark:border-gray-700/80 p-4">
-            <h3 class="font-semibold text-gray-900 dark:text-white">
-              Colaborador y Tesista - SOPHIA, Valdivia
-            </h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300">ene. 2021 - sep. 2023</p>
-            <ul class="mt-3 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Pipelines ETL para extraccion, limpieza y estructuracion desde PDFs y scraping.</li>
-              <li>Modelos de NLP en Python para clasificacion y analisis de textos.</li>
-              <li>Entrenamiento y evaluacion de modelos con pandas, NumPy y scikit-learn.</li>
-              <li>Automatizacion de reportes con visualizaciones y metricas para no tecnicos.</li>
-              <li>Diseno de scripts reproducibles y documentados para datasets extensos.</li>
-            </ul>
-          </div>
+          <ol class="mt-6 border-s-2 border-slate-200 ps-6 dark:border-slate-700 space-y-6">
+            <li class="relative">
+              <span
+                class="absolute -start-[1.92rem] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-cyan-500 shadow dark:border-slate-900"
+              ></span>
+              <article class="rounded-xl border border-slate-200/80 bg-white/85 p-4 dark:border-slate-700/80 dark:bg-slate-900/70">
+                <p class="text-xs font-semibold uppercase tracking-wider text-cyan-700 dark:text-cyan-300">
+                  nov. 2024 - Actualidad
+                </p>
+                <h3 class="mt-1 text-lg font-semibold text-slate-900 dark:text-white">
+                  Ingeniero de Desarrollo - Innovex SpA, Valdivia
+                </h3>
+                <ul class="mt-3 list-disc pl-5 text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                  <li>Construccion de APIs y pipelines de datos con Django y Python.</li>
+                  <li>Integracion de bases de datos relacionales con PostgreSQL y SQL.</li>
+                  <li>Validacion, limpieza y transformacion de datos para procesos de negocio.</li>
+                  <li>Trabajo interdisciplinario con producto y QA, incluyendo documentacion tecnica.</li>
+                </ul>
+              </article>
+            </li>
 
-          <div class="rounded-lg border border-gray-200/80 dark:border-gray-700/80 p-4">
-            <h3 class="font-semibold text-gray-900 dark:text-white">
-              Encargado de Trazabilidad - Framberry, Osorno
-            </h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300">ene. 2019 - feb. 2019</p>
-            <ul class="mt-3 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Administracion del sistema de trazabilidad recien implementado.</li>
-              <li>Capacitacion a areas responsables sobre operatividad del sistema.</li>
-              <li>Propuestas de mejora para optimizar la gestion de trazabilidad.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+            <li class="relative">
+              <span
+                class="absolute -start-[1.92rem] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-fuchsia-500 shadow dark:border-slate-900"
+              ></span>
+              <article class="rounded-xl border border-slate-200/80 bg-white/85 p-4 dark:border-slate-700/80 dark:bg-slate-900/70">
+                <p class="text-xs font-semibold uppercase tracking-wider text-fuchsia-700 dark:text-fuchsia-300">
+                  sep. 2023 - jun. 2024
+                </p>
+                <h3 class="mt-1 text-lg font-semibold text-slate-900 dark:text-white">
+                  Analista de Datos y Optimizacion de Procesos - EQUANS, Osorno
+                </h3>
+                <ul class="mt-3 list-disc pl-5 text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                  <li>EDA para optimizacion de rutas y eficiencia de cuadrillas operativas.</li>
+                  <li>Preparacion de datasets con SQL y Python: limpieza, normalizacion y features.</li>
+                  <li>Diseno de dashboards y reportes en Power BI para jefaturas no tecnicas.</li>
+                  <li>Analisis estadistico para detectar patrones y oportunidades de mejora.</li>
+                  <li>Implementacion de sistema de trazabilidad integrando multiples fuentes.</li>
+                </ul>
+              </article>
+            </li>
 
-      <section>
-        <h2 class="text-xl font-semibold text-gray-800 dark:text-gray-100">
-          Actividades extracurriculares
-        </h2>
-        <div class="mt-4 space-y-5">
-          <div class="rounded-lg border border-gray-200/80 dark:border-gray-700/80 p-4">
-            <h3 class="font-semibold text-gray-900 dark:text-white">
+            <li class="relative">
+              <span
+                class="absolute -start-[1.92rem] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-emerald-500 shadow dark:border-slate-900"
+              ></span>
+              <article class="rounded-xl border border-slate-200/80 bg-white/85 p-4 dark:border-slate-700/80 dark:bg-slate-900/70">
+                <p class="text-xs font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
+                  ene. 2021 - sep. 2023
+                </p>
+                <h3 class="mt-1 text-lg font-semibold text-slate-900 dark:text-white">
+                  Colaborador y Tesista - SOPHIA, Valdivia
+                </h3>
+                <ul class="mt-3 list-disc pl-5 text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                  <li>Pipelines ETL para extraccion y estructuracion de datos desde PDFs y scraping.</li>
+                  <li>Modelos de NLP con Python para clasificacion y analisis de textos.</li>
+                  <li>Entrenamiento de modelos con pandas, NumPy y scikit-learn.</li>
+                  <li>Automatizacion de reportes con visualizaciones y metricas claras.</li>
+                  <li>Diseno de scripts reproducibles y documentados para datasets extensos.</li>
+                </ul>
+              </article>
+            </li>
+
+            <li class="relative">
+              <span
+                class="absolute -start-[1.92rem] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-amber-500 shadow dark:border-slate-900"
+              ></span>
+              <article class="rounded-xl border border-slate-200/80 bg-white/85 p-4 dark:border-slate-700/80 dark:bg-slate-900/70">
+                <p class="text-xs font-semibold uppercase tracking-wider text-amber-700 dark:text-amber-300">
+                  ene. 2019 - feb. 2019
+                </p>
+                <h3 class="mt-1 text-lg font-semibold text-slate-900 dark:text-white">
+                  Encargado de Trazabilidad - Framberry, Osorno
+                </h3>
+                <ul class="mt-3 list-disc pl-5 text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                  <li>Administracion del sistema de trazabilidad implementado en la organizacion.</li>
+                  <li>Capacitacion de equipos sobre operatividad y flujos de uso.</li>
+                  <li>Propuestas de mejora para optimizacion de la gestion del sistema.</li>
+                </ul>
+              </article>
+            </li>
+          </ol>
+        </section>
+      </article>
+
+      <section class="rounded-2xl border border-slate-200/70 bg-white/70 p-6 shadow-sm backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/55">
+        <h2 class="text-xl font-semibold text-slate-900 dark:text-white">Actividades extracurriculares</h2>
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <article class="rounded-xl border border-slate-200/80 bg-white/85 p-4 dark:border-slate-700/80 dark:bg-slate-900/70">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+              jul. 2020 - jul. 2023
+            </p>
+            <h3 class="mt-1 text-base font-semibold text-slate-900 dark:text-white">
               Ayudante y Laborante de Programacion - UACh
             </h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300">jul. 2020 - jul. 2023</p>
-            <ul class="mt-3 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-              <li>Desarrollo y coordinacion de clases practicas de Python para Ingenieria.</li>
-              <li>Elaboracion de recursos didacticos y mejora de metodologias de ensenanza.</li>
+            <ul class="mt-3 list-disc pl-5 text-sm text-slate-700 dark:text-slate-300 space-y-1">
+              <li>Coordinacion de clases practicas de Python para carreras de Ingenieria.</li>
+              <li>Diseno de recursos didacticos y mejora de metodologias de ensenanza.</li>
             </ul>
-          </div>
+          </article>
 
-          <div class="rounded-lg border border-gray-200/80 dark:border-gray-700/80 p-4">
-            <h3 class="font-semibold text-gray-900 dark:text-white">
+          <article class="rounded-xl border border-slate-200/80 bg-white/85 p-4 dark:border-slate-700/80 dark:bg-slate-900/70">
+            <p class="text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+              abr. 2019 - abr. 2020
+            </p>
+            <h3 class="mt-1 text-base font-semibold text-slate-900 dark:text-white">
               Presidente del Centro de Estudiantes - UACh
             </h3>
-            <p class="text-sm text-gray-600 dark:text-gray-300">abr. 2019 - abr. 2020</p>
-            <ul class="mt-3 list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+            <ul class="mt-3 list-disc pl-5 text-sm text-slate-700 dark:text-slate-300 space-y-1">
               <li>Coordinacion entre estudiantes, profesores y decanatura.</li>
-              <li>
-                Implementacion de soluciones para mejorar calidad educativa e infraestructura
-                academica.
-              </li>
+              <li>Impulso de mejoras en calidad educativa e infraestructura academica.</li>
             </ul>
-          </div>
+          </article>
         </div>
       </section>
-
-      <section>
-        <h2 class="text-lg font-semibold text-gray-800 dark:text-gray-100">
-          Tecnologias y enfoque
-        </h2>
-        <p class="mt-2 text-gray-700 dark:text-gray-300">
-          Stack principal: Python, Django, SQL, PostgreSQL, Power BI, pandas, NumPy y
-          scikit-learn. Enfoque: soluciones practicas, escalables y reproducibles.
-        </p>
-      </section>
-    </article>
+    </div>
   </section>
 </Layout>

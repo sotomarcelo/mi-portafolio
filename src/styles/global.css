@@ -92,6 +92,33 @@ html.dark {
   background: transparent;
 }
 
+/* Inicio readability guard: keeps text dark in light mode and bright in dark mode */
+.inicio-readable .card-root h3,
+.inicio-readable .card-root h5,
+.inicio-readable .card-root p,
+.inicio-readable .card-root time,
+.inicio-readable .card-root li,
+.inicio-readable .card-root span {
+  color: #111827;
+}
+
+html.dark .inicio-readable .card-root h3,
+html.dark .inicio-readable .card-root h5,
+html.dark .inicio-readable .card-root p,
+html.dark .inicio-readable .card-root time,
+html.dark .inicio-readable .card-root li,
+html.dark .inicio-readable .card-root span {
+  color: #f9fafb;
+}
+
+/* Keep status badge text legible and semantically colored in both themes */
+.inicio-readable .card-root .status-chip {
+  color: #065f46;
+}
+html.dark .inicio-readable .card-root .status-chip {
+  color: #a7f3d0;
+}
+
 /* Page background variables */
 :root {
   --page-bg: #f9fafb; /* bg-gray-50 */

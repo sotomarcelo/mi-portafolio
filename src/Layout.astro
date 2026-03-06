@@ -143,6 +143,38 @@ import Navbar from './components/Navbar.astro';
         }
       })();
     </script>
+    <script>
+      // Lightweight mobile navbar toggle (fallback when Flowbite JS is not loaded)
+      (function () {
+        function initNavbarToggle() {
+          var toggleBtn = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
+          var menu = document.getElementById('navbar-sticky');
+          if (!toggleBtn || !menu) return;
+
+          toggleBtn.addEventListener('click', function () {
+            var isHidden = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden');
+            toggleBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+          });
+
+          var navLinks = menu.querySelectorAll('a[href]');
+          navLinks.forEach(function (link) {
+            link.addEventListener('click', function () {
+              if (window.innerWidth < 768) {
+                menu.classList.add('hidden');
+                toggleBtn.setAttribute('aria-expanded', 'false');
+              }
+            });
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initNavbarToggle);
+        } else {
+          initNavbarToggle();
+        }
+      })();
+    </script>
     <slot />
   </body>
 </html>

@@ -7,7 +7,7 @@ import '../styles/global.css';
 
 <Layout>
   <section
-    class="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 py-4 pt-24"
+    class="inicio-readable flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 py-4 pt-24"
     style={`min-height:unset;height:100vh;background-color: var(--page-bg); color: var(--page-color);`}
   >
     <!-- Título eliminado por solicitud del usuario -->
@@ -21,26 +21,26 @@ import '../styles/global.css';
         title="Sobre mí"
         colorClass="border-blue-400 dark:border-blue-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-1 sm:col-span-6 sm:row-start-1 sm:row-span-4"
       >
-        <div class="flex flex-col gap-3">
-          <h3 class="text-2xl font-extrabold text-gray-900 dark:text-white">Marcelo Soto</h3>
-          <p class="text-sm text-gray-700 dark:text-gray-300">
-            Soy ingieniero de desarrollo Fullstack
+        <div class="flex flex-col gap-3 h-full">
+          <h3 class="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">Marcelo Soto</h3>
+          <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+            Soy Ingeniero de Desarrollo Fullstack con foco en productos utiles, datos y automatizacion.
           </p>
 
           <div class="mt-2 flex items-center gap-3 text-gray-900 dark:text-white">
             <span
-              class="inline-flex items-center gap-2 px-3 py-1 rounded-md border border-gray-200 bg-white/30 text-sm text-gray-900 dark:bg-transparent dark:border-gray-700"
+              class="status-chip inline-flex items-center gap-2 px-3 py-1 rounded-lg border border-emerald-300/80 bg-emerald-50 text-sm font-medium text-emerald-800 shadow-sm dark:border-emerald-500/50 dark:bg-emerald-500/15 dark:text-emerald-200"
             >
-              <span class="w-2 h-2 dark:text-white rounded-full bg-emerald-400 inline-block"></span>
+              <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
               Disponible para nuevos proyectos
             </span>
           </div>
 
-          <div class="mt-3 flex items-center gap-4">
+          <div class="mt-auto pt-2 flex items-center gap-4">
             <!-- Social icons (placeholder links) -->
             <a
               href="#"
-              class="text-gray-500 hover:text-gray-800 dark:text-gray-300"
+              class="text-gray-500 hover:text-blue-700 transition-colors dark:text-gray-300 dark:hover:text-blue-400"
               aria-label="Twitter"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
@@ -51,7 +51,7 @@ import '../styles/global.css';
             </a>
             <a
               href="#"
-              class="text-gray-500 hover:text-gray-800 dark:text-gray-300"
+              class="text-gray-500 hover:text-pink-600 transition-colors dark:text-gray-300 dark:hover:text-pink-400"
               aria-label="Instagram"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
@@ -62,7 +62,7 @@ import '../styles/global.css';
             </a>
             <a
               href="#"
-              class="text-gray-500 hover:text-gray-800 dark:text-gray-300"
+              class="text-gray-500 hover:text-gray-900 transition-colors dark:text-gray-300 dark:hover:text-white"
               aria-label="GitHub"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
@@ -73,7 +73,7 @@ import '../styles/global.css';
             </a>
             <a
               href="#"
-              class="text-gray-500 hover:text-gray-800 dark:text-gray-300"
+              class="text-gray-500 hover:text-blue-700 transition-colors dark:text-gray-300 dark:hover:text-blue-400"
               aria-label="LinkedIn"
             >
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
@@ -100,7 +100,7 @@ import '../styles/global.css';
                   class="absolute w-3 h-3 bg-blue-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-blue-600 dark:border-gray-900"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+                <time class="mb-1 text-xs font-normal leading-none text-gray-600 dark:text-gray-400"
                   >nov. 2024 - Actualidad</time
                 >
                 <p class="text-sm font-semibold text-gray-900 dark:text-white">
@@ -112,7 +112,7 @@ import '../styles/global.css';
                   class="absolute w-3 h-3 bg-pink-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-pink-600 dark:border-gray-900"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+                <time class="mb-1 text-xs font-normal leading-none text-gray-600 dark:text-gray-400"
                   >sep. 2023 - jun. 2024</time
                 >
                 <p class="text-sm font-semibold text-gray-900 dark:text-white">
@@ -124,7 +124,7 @@ import '../styles/global.css';
                   class="absolute w-3 h-3 bg-green-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-green-600 dark:border-gray-900"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+                <time class="mb-1 text-xs font-normal leading-none text-gray-600 dark:text-gray-400"
                   >ene. 2021 - sep. 2023</time
                 >
                 <p class="text-sm font-semibold text-gray-900 dark:text-white">
@@ -136,7 +136,7 @@ import '../styles/global.css';
                   class="absolute w-3 h-3 bg-yellow-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-yellow-600 dark:border-gray-900"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+                <time class="mb-1 text-xs font-normal leading-none text-gray-600 dark:text-gray-400"
                   >ene. 2019 - feb. 2019</time
                 >
                 <p class="text-sm font-semibold text-gray-900 dark:text-white">
@@ -159,21 +159,23 @@ import '../styles/global.css';
       </Card>
       <!-- C: Proyectos -->
       <Card
+        id="proyectos"
         title="Proyectos"
         colorClass="border-green-400 dark:border-green-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-1 sm:col-span-4 sm:row-start-5 sm:row-span-4"
         content="Algunos de mis proyectos destacados en desarrollo web, aplicaciones y más."
         showButton={true}
         buttonText="Ver proyectos"
-        buttonHref="#proyectos"
+        buttonHref="/proyectos"
       />
       <!-- D: Contacto -->
       <Card
+        id="contactame"
         title="Contáctame"
         colorClass="border-yellow-400 dark:border-yellow-500 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-5 sm:col-span-4 sm:row-start-5 sm:row-span-4"
         content="¿Tienes un proyecto o quieres colaborar? Escríbeme y conversemos sobre cómo puedo ayudar."
         showButton={true}
         buttonText="Ir a contacto"
-        buttonHref="#contactame"
+        buttonHref="/contactame"
       />
       <!-- E: 2x2 -->
       <Card
@@ -183,13 +185,150 @@ import '../styles/global.css';
       />
       <!-- F: 6x1 -->
       <Card
-        title="Tecnologías"
+        title="Mi Stack"
         colorClass="border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-1 sm:col-span-12 sm:row-start-9 sm:row-span-2"
       >
+        <button
+          type="button"
+          slot="title-action"
+          data-open-tech-modal
+          class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white text-slate-700 shadow-sm transition-colors hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+          aria-label="Ver stack completo"
+          title="Ver stack completo"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            class="h-4 w-4"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+            ></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+
         <div class="w-full sm:pb-8">
           <CarruselTechs />
         </div>
       </Card>
     </div>
+
+    <div
+      id="tech-modal"
+      class="hidden fixed inset-0 z-50 items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="tech-modal-title"
+    >
+      <div data-tech-modal-backdrop class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
+
+      <div
+        class="relative z-10 w-full max-w-3xl rounded-2xl border border-slate-200/70 bg-white/95 p-5 shadow-2xl dark:border-slate-700/70 dark:bg-slate-900/95"
+      >
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <h2 id="tech-modal-title" class="text-xl font-bold text-slate-900 dark:text-white">
+              Tecnologias por categoria
+            </h2>
+            <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
+              Resumen del stack principal que utilizo en proyectos de desarrollo y datos.
+            </p>
+          </div>
+          <button
+            type="button"
+            data-close-tech-modal
+            class="rounded-md border border-slate-300 px-2 py-1 text-sm text-slate-600 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"
+            aria-label="Cerrar modal"
+          >
+            Cerrar
+          </button>
+        </div>
+
+        <div class="mt-4 grid gap-4 md:grid-cols-2">
+          <article class="rounded-lg border border-cyan-200/80 bg-cyan-50/70 p-4 dark:border-cyan-800/70 dark:bg-cyan-950/20">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-cyan-800 dark:text-cyan-200">
+              Frontend
+            </h3>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/react.svg" alt="React" class="h-3.5 w-3.5" loading="lazy" />React</span>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/nextjs.svg" alt="Next.js" class="h-3.5 w-3.5" loading="lazy" />Next.js</span>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/astro.svg" alt="Astro" class="h-3.5 w-3.5" loading="lazy" />Astro</span>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/html5.svg" alt="HTML5" class="h-3.5 w-3.5" loading="lazy" />HTML5</span>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/css3.svg" alt="CSS3" class="h-3.5 w-3.5" loading="lazy" />CSS3</span>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/tailwindcss.svg" alt="Tailwind CSS" class="h-3.5 w-3.5" loading="lazy" />Tailwind CSS</span>
+            </div>
+          </article>
+
+          <article class="rounded-lg border border-emerald-200/80 bg-emerald-50/70 p-4 dark:border-emerald-800/70 dark:bg-emerald-950/20">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-emerald-800 dark:text-emerald-200">
+              Backend
+            </h3>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/python.svg" alt="Python" class="h-3.5 w-3.5" loading="lazy" />Python</span>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/django.svg" alt="Django" class="h-3.5 w-3.5" loading="lazy" />Django</span>
+            </div>
+          </article>
+
+          <article class="rounded-lg border border-indigo-200/80 bg-indigo-50/70 p-4 dark:border-indigo-800/70 dark:bg-indigo-950/20 md:col-span-2">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-indigo-800 dark:text-indigo-200">
+              Datos y Analitica
+            </h3>
+            <div class="mt-2 flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/postgresql.svg" alt="PostgreSQL" class="h-3.5 w-3.5" loading="lazy" />PostgreSQL</span>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/mongodb.svg" alt="MongoDB" class="h-3.5 w-3.5" loading="lazy" />MongoDB</span>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/elasticsearch.svg" alt="Elasticsearch" class="h-3.5 w-3.5" loading="lazy" />Elasticsearch</span>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200"><img src="/icons/jupyter.svg" alt="Jupyter" class="h-3.5 w-3.5" loading="lazy" />Jupyter</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
   </section>
 </Layout>
+
+<script>
+  (function () {
+    function initTechModal() {
+      var modal = document.getElementById('tech-modal');
+      var openBtn = document.querySelector('[data-open-tech-modal]');
+      var closeBtn = document.querySelector('[data-close-tech-modal]');
+      var backdrop = modal ? modal.querySelector('[data-tech-modal-backdrop]') : null;
+      if (!modal || !openBtn || !closeBtn || !backdrop) return;
+
+      function openModal() {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      backdrop.addEventListener('click', closeModal);
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+          closeModal();
+        }
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTechModal);
+    } else {
+      initTechModal();
+    }
+  })();
+</script>

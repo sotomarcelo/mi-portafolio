@@ -14,10 +14,12 @@ const {
   showButton = false,
   buttonText = 'Ver más',
   buttonHref = '#',
+  ...rest
 } = Astro.props;
 ---
 
 <div
+  {...rest}
   class={`card-root relative h-full w-full p-4 border rounded-lg shadow-sm bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between ${colorClass}`}
   style={`background-color: var(--card-bg); border-color: var(--card-border); color: var(--card-color);`}
 >
@@ -25,7 +27,10 @@ const {
   <div class="card-inner">
     <div>
       {title ? (
-        <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+        <div class="mb-2 flex items-center justify-between gap-2">
+          <h5 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">{title}</h5>
+          <slot name="title-action" />
+        </div>
       ) : null}
       {content ? <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{content}</p> : null}
       <slot />
