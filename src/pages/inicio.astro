@@ -91,44 +91,60 @@ import '../styles/global.css';
         colorClass="border-pink-400 dark:border-pink-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-7 sm:col-span-6 sm:row-start-1 sm:row-span-4"
       >
         <div class="relative">
-          <ol
-            class="relative border-s border-gray-200 dark:border-gray-700 ml-2 mt-2 transition-all duration-200"
-          >
-            <li class="mb-4 ms-4">
-              <div
-                class="absolute w-3 h-3 bg-blue-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-blue-600 dark:border-gray-900"
-              >
-              </div>
-              <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
-                >2022 - Actualidad</time
-              >
-              <p class="text-sm font-semibold text-gray-900 dark:text-white">
-                Desarrollador Web Fullstack
-              </p>
-            </li>
-            <li class="mb-4 ms-4">
-              <div
-                class="absolute w-3 h-3 bg-pink-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-pink-600 dark:border-gray-900"
-              >
-              </div>
-              <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
-                >2021 - 2022</time
-              >
-              <p class="text-sm font-semibold text-gray-900 dark:text-white">Frontend Developer</p>
-            </li>
-            <li class="ms-4">
-              <div
-                class="absolute w-3 h-3 bg-green-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-green-600 dark:border-gray-900"
-              >
-              </div>
-              <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
-                >2020 - 2021</time
-              >
-              <p class="text-sm font-semibold text-gray-900 dark:text-white">
-                Prácticas y primeros proyectos
-              </p>
-            </li>
-          </ol>
+          <div class="experience-scroll">
+            <ol
+              class="relative border-s border-gray-200 dark:border-gray-700 ml-2 mt-2 transition-all duration-200"
+            >
+              <li class="mb-4 ms-4">
+                <div
+                  class="absolute w-3 h-3 bg-blue-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-blue-600 dark:border-gray-900"
+                >
+                </div>
+                <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+                  >nov. 2024 - Actualidad</time
+                >
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  Ingeniero de Desarrollo - Innovex SpA
+                </p>
+              </li>
+              <li class="mb-4 ms-4">
+                <div
+                  class="absolute w-3 h-3 bg-pink-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-pink-600 dark:border-gray-900"
+                >
+                </div>
+                <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+                  >sep. 2023 - jun. 2024</time
+                >
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  Analista de Datos - EQUANS
+                </p>
+              </li>
+              <li class="mb-4 ms-4">
+                <div
+                  class="absolute w-3 h-3 bg-green-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-green-600 dark:border-gray-900"
+                >
+                </div>
+                <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+                  >ene. 2021 - sep. 2023</time
+                >
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  Colaborador y Tesista - SOPHIA
+                </p>
+              </li>
+              <li class="ms-4">
+                <div
+                  class="absolute w-3 h-3 bg-yellow-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-yellow-600 dark:border-gray-900"
+                >
+                </div>
+                <time class="mb-1 text-xs font-normal leading-none text-gray-400 dark:text-gray-500"
+                  >ene. 2019 - feb. 2019</time
+                >
+                <p class="text-sm font-semibold text-gray-900 dark:text-white">
+                  Encargado de Trazabilidad - Framberry
+                </p>
+              </li>
+            </ol>
+          </div>
           <!-- Botón fijo en la esquina inferior derecha del card (no desenfocado) -->
           <div slot="overlay">
             <a
@@ -136,7 +152,7 @@ import '../styles/global.css';
               class="absolute bottom-3 right-3 z-20 inline-flex items-center px-3 py-1.5 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600"
               aria-label="Ver más experiencia"
             >
-              Ver más experiencia
+              Ver detalle completo
             </a>
           </div>
         </div>

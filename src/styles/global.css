@@ -14,11 +14,11 @@ html.dark body {
   color: #e5e7eb; /* Tailwind text-gray-200 */
 }
 
-/* Links */
-a {
+/* Links: only unstyled anchors, so button-like links keep their utility colors */
+a:not([class]) {
   color: #2563eb;
 } /* text-blue-600 */
-html.dark a {
+html.dark a:not([class]) {
   color: #60a5fa;
 } /* text-blue-400 */
 
@@ -45,26 +45,51 @@ html.dark h6 {
 
 /* Ensure cards follow light/dark backgrounds even if other utilities are missing */
 .card-root {
-  background-color: #ffffff; /* bg-white */
+  background-color: rgba(255, 255, 255, 0.72);
   border-color: #e5e7eb; /* border-gray-200 */
   color: #111827; /* text-gray-900 */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
 }
 html.dark .card-root {
-  background-color: #1f2937; /* gray-800 */
+  background-color: rgba(31, 41, 55, 0.62);
   border-color: #374151; /* gray-700 */
   color: #f9fafb; /* gray-50 */
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.35);
 }
 
 /* CSS variables fallback approach */
 :root {
-  --card-bg: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.72);
   --card-border: #e5e7eb;
   --card-color: #111827;
 }
 html.dark {
-  --card-bg: #1f2937;
+  --card-bg: rgba(31, 41, 55, 0.62);
   --card-border: #374151;
   --card-color: #f9fafb;
+}
+
+/* Scroll area for timeline preview in grid cards */
+.experience-scroll {
+  max-height: 12rem;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+  padding-bottom: 2.75rem;
+}
+
+.experience-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.experience-scroll::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.5);
+  border-radius: 999px;
+}
+
+.experience-scroll::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 /* Page background variables */

@@ -22,49 +22,32 @@ const iconList = [
 
 <div
   class="overflow-hidden w-full py-2 flex items-center justify-center"
-  style="min-height:4.5rem;max-height:3.5rem;"
+  style="height:4.5rem;"
 >
   <div class="relative w-full h-16">
     <div
       class="absolute top-0 left-0 flex animate-marquee gap-8 text-3xl sm:text-4xl whitespace-nowrap w-max"
     >
       {
-        iconList.map((item) => (
-          <div
-            class="hover:scale-110 transition-transform flex items-center justify-center dark:filter-none"
-            style="min-width:3.5rem;"
-          >
-            {item.file ? (
-              <img
-                src={`/icons/${item.file}`}
-                alt={item.name}
-                class={`w-10 h-10 sm:w-12 sm:h-12 ${item.color}`}
-                loading="lazy"
-              />
-            ) : (
-              <Icon name={item.name} class={`w-10 h-10 sm:w-12 sm:h-12 ${item.color}`} />
-            )}
-          </div>
-        ))
-      }
-      {
-        iconList.map((item) => (
-          <div
-            class="hover:scale-110 transition-transform flex items-center justify-center"
-            style="min-width:3.5rem;"
-          >
-            {item.file ? (
-              <img
-                src={`/icons/${item.file}`}
-                alt={item.name}
-                class={`w-10 h-10 sm:w-12 sm:h-12 ${item.color}`}
-                loading="lazy"
-              />
-            ) : (
-              <Icon name={item.name} class={`w-10 h-10 sm:w-12 sm:h-12 ${item.color}`} />
-            )}
-          </div>
-        ))
+        [0, 1, 2].map(() =>
+          iconList.map((item) => (
+            <div
+              class="hover:scale-110 transition-transform flex items-center justify-center dark:filter-none"
+              style="min-width:3.5rem;"
+            >
+              {item.file ? (
+                <img
+                  src={`/icons/${item.file}`}
+                  alt={item.name}
+                  class={`w-10 h-10 sm:w-12 sm:h-12 ${item.color}`}
+                  loading="lazy"
+                />
+              ) : (
+                <Icon name={item.name} class={`w-10 h-10 sm:w-12 sm:h-12 ${item.color}`} />
+              )}
+            </div>
+          ))
+        )
       }
     </div>
   </div>
@@ -76,7 +59,7 @@ const iconList = [
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%);
+      transform: translateX(-33.333%);
     }
   }
   .animate-marquee {
