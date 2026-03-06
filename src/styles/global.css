@@ -1,84 +1,31 @@
 @import 'tailwindcss';
 @import 'flowbite/src/themes/default';
 
-/* Global base styles for light/dark mode (CSS fallbacks) */
-/* Page background and text */
-body {
-  background-color: #f9fafb; /* Tailwind bg-gray-50 */
-  color: #000000; /* Black text in light mode */
-  background-image:
-    radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.08), transparent 35%),
-    radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.08), transparent 40%);
-  background-attachment: fixed;
-}
+/* Override Tailwind's dark mode to use the .dark class instead of OS preference */
+@variant dark (&:where(.dark, .dark *));
 
-/* Dark mode overrides when .dark is present on <html> */
-html.dark body {
-  background-color: #0f172a; /* Tailwind bg-gray-900 */
-  color: #e5e7eb; /* Tailwind text-gray-200 */
-  background-image:
-    radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.09), transparent 35%),
-    radial-gradient(circle at 90% 90%, rgba(59, 130, 246, 0.1), transparent 40%);
-  background-attachment: fixed;
-}
+/*
+ * IMPORTANT: All custom styles go inside @layer so Tailwind utilities
+ * (text-black, dark:text-white, etc.) can override them.
+ * Unlayered CSS beats @layer utilities in Tailwind v4 — that breaks dark mode.
+ */
 
-/* Links: only unstyled anchors, so button-like links keep their utility colors */
-a:not([class]) {
-  color: #2563eb;
-} /* text-blue-600 */
-html.dark a:not([class]) {
-  color: #60a5fa;
-} /* text-blue-400 */
-
-/* Headings default colors */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #000000;
-}
-html.dark h1,
-html.dark h2,
-html.dark h3,
-html.dark h4,
-html.dark h5,
-html.dark h6 {
-  color: #ffffff;
-}
-
-/* Forzar a Tailwind a incluir las clases dinámicas de grid usadas en el kanban */
-/* (estas clases se usan en los templates y deberían ser incluidas por Tailwind en producción) */
-
-/* Ensure cards follow light/dark backgrounds */
-.card-root {
-  background-color: #ffffff;
-  border-color: #e2e8f0; /* slate-200 */
-  color: #000000; /* black */
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-html.dark .card-root {
-  background-color: rgba(31, 41, 55, 0.62);
-  border-color: #374151; /* gray-700 */
-  color: #f9fafb; /* gray-50 */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.35);
-}
-
-/* CSS variables fallback approach */
+/* ── CSS custom properties (variables always cascade, layers don't affect them) ── */
 :root {
   --card-bg: #ffffff;
   --card-border: #e2e8f0;
-  --card-color: #0f172a;
+  --card-color: #000000;
   --surface-glass: #ffffff;
   --surface-glass-strong: #ffffff;
   --surface-border: #cbd5e1;
   --surface-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --page-bg: #f9fafb;
+  --page-color: #000000;
+  --navbar-bg: #ffffff;
+  --navbar-color: #000000;
+  --navbar-border: #e2e8f0;
 }
+
 html.dark {
   --card-bg: rgba(31, 41, 55, 0.62);
   --card-border: #374151;
@@ -87,161 +34,172 @@ html.dark {
   --surface-glass-strong: rgba(15, 23, 42, 0.76);
   --surface-border: rgba(71, 85, 105, 0.52);
   --surface-shadow: 0 16px 30px rgba(2, 6, 23, 0.42);
+  --page-bg: #0f172a;
+  --page-color: #e5e7eb;
+  --navbar-bg: rgba(11, 18, 32, 0.72);
+  --navbar-color: #e5e7eb;
+  --navbar-border: rgba(71, 85, 105, 0.45);
 }
 
-/* Reusable panels: Solid clean panels in Light, Glass in Dark */
-.glass-panel {
-  background-color: #ffffff; /* Solid White in Light Mode */
-  border: 1px solid #e2e8f0; /* Slate-200 */
-  color: #000000;
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+/* ── Base layer: defaults that Tailwind utilities CAN override ── */
+@layer base {
+  body {
+    background-color: var(--page-bg);
+    color: var(--page-color);
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.08), transparent 35%),
+      radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.08), transparent 40%);
+    background-attachment: fixed;
+  }
+
+  html.dark body {
+    background-image:
+      radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.09), transparent 35%),
+      radial-gradient(circle at 90% 90%, rgba(59, 130, 246, 0.1), transparent 40%);
+  }
+
+  /* Links without classes */
+  a:not([class]) {
+    color: #2563eb;
+  }
+  html.dark a:not([class]) {
+    color: #60a5fa;
+  }
+
+  /* Heading defaults */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #000000;
+  }
+  html.dark h1,
+  html.dark h2,
+  html.dark h3,
+  html.dark h4,
+  html.dark h5,
+  html.dark h6 {
+    color: #ffffff;
+  }
 }
 
-.glass-panel-strong {
-  background-color: #ffffff;
-  border: 1px solid #cbd5e1; /* Slate-300 */
-  color: #000000;
-  box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+/* ── Components layer: card/panel styles that utilities CAN override ── */
+@layer components {
+  /* Card root */
+  .card-root {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+    color: var(--card-color);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  html.dark .card-root {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 14px 30px rgba(2, 6, 23, 0.35);
+  }
+
+  /* Glass panels — Light: solid white / Dark: glass effect */
+  .glass-panel {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #000000;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  html.dark .glass-panel {
+    background-color: var(--surface-glass);
+    border: 1px solid var(--surface-border);
+    color: #e5e7eb;
+    box-shadow: var(--surface-shadow);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .glass-panel-strong {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #000000;
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  html.dark .glass-panel-strong {
+    background-color: var(--surface-glass-strong);
+    border: 1px solid var(--surface-border);
+    color: #e5e7eb;
+    box-shadow: var(--surface-shadow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Scroll area for timeline preview */
+  .experience-scroll {
+    max-height: 12rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    padding-bottom: 2.75rem;
+  }
+
+  /* Inicio card hover */
+  .inicio-readable .card-root {
+    border-color: #cbd5e1;
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+  .inicio-readable .card-root:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  html.dark .inicio-readable .card-root {
+    background-color: rgba(15, 23, 42, 0.72);
+    border-color: rgba(71, 85, 105, 0.52);
+    box-shadow: 0 16px 30px rgba(2, 6, 23, 0.4);
+  }
+
+  /* Status badge */
+  .inicio-readable .card-root .status-chip {
+    color: #065f46;
+  }
+  html.dark .inicio-readable .card-root .status-chip {
+    color: #a7f3d0;
+  }
+
+  /* Navbar */
+  nav {
+    background-color: var(--navbar-bg);
+    border-bottom: 1px solid var(--navbar-border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  html.dark nav {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 24px rgba(2, 6, 23, 0.35);
+    border-bottom: 1px solid var(--navbar-border);
+  }
 }
 
-html.dark .glass-panel {
-  background-color: var(--surface-glass);
-  border: 1px solid var(--surface-border);
-  box-shadow: var(--surface-shadow);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-html.dark .glass-panel-strong {
-  background-color: var(--surface-glass-strong);
-  border: 1px solid var(--surface-border);
-  box-shadow: var(--surface-shadow);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* Scroll area for timeline preview in grid cards */
-.experience-scroll {
-  max-height: 12rem;
-  overflow-y: auto;
-  padding-right: 0.5rem;
-  padding-bottom: 2.75rem;
-}
-
+/* Scrollbar styling (visual only, no color cascade issues) */
 .experience-scroll::-webkit-scrollbar {
   width: 8px;
 }
-
 .experience-scroll::-webkit-scrollbar-thumb {
   background: rgba(100, 116, 139, 0.5);
   border-radius: 999px;
 }
-
 .experience-scroll::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Inicio readability guard: keep strong contrast over white backgrounds */
-.inicio-readable .card-root {
-  background-color: #ffffff;
-  border-color: #cbd5e1; /* slate-300 for clearer definition */
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.inicio-readable .card-root:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-.inicio-readable .card-root h3,
-.inicio-readable .card-root h5,
-.inicio-readable .card-root p,
-.inicio-readable .card-root time,
-.inicio-readable .card-root li {
-  color: #0f172a; /* Slate-900 absolute contrast */
-}
-
-/* Secondary text */
-.inicio-readable .card-root .text-gray-700,
-.inicio-readable .card-root .text-slate-700,
-.inicio-readable .card-root li p,
-.inicio-readable .card-root time {
-  color: #334155; /* Slate-700 */
-}
-
-html.dark .inicio-readable .card-root {
-  background-color: rgba(15, 23, 42, 0.72);
-  border-color: rgba(71, 85, 105, 0.52);
-  box-shadow: 0 16px 30px rgba(2, 6, 23, 0.4);
-}
-
-html.dark .inicio-readable .card-root h3,
-html.dark .inicio-readable .card-root h5,
-html.dark .inicio-readable .card-root p,
-html.dark .inicio-readable .card-root time,
-html.dark .inicio-readable .card-root li {
-  color: #f9fafb;
-}
-
-/* Keep status badge text legible and semantically colored in both themes */
-.inicio-readable .card-root .status-chip {
-  color: #065f46;
-}
-html.dark .inicio-readable .card-root .status-chip {
-  color: #a7f3d0;
-}
-
-/* Page background variables */
-:root {
-  --page-bg: #f9fafb; /* bg-gray-50 */
-  --page-color: #1f2937; /* text-gray-800 */
-}
-html.dark {
-  --page-bg: #0f172a; /* bg-gray-900 */
-  --page-color: #e5e7eb; /* text-gray-200 */
-}
-
-/* Navbar variables */
-:root {
-  --navbar-bg: #ffffff;
-  --navbar-color: #0f172a; /* slate-900 */
-  --navbar-border: #e2e8f0; /* slate-200 */
-}
-html.dark {
-  --navbar-bg: rgba(11, 18, 32, 0.72);
-  --navbar-color: #e5e7eb; /* text-gray-200 */
-  --navbar-border: rgba(71, 85, 105, 0.45);
-}
-
-nav {
-  /* Light mode: clean solid white */
-  background-color: var(--navbar-bg);
-  border-bottom: 1px solid var(--navbar-border);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-html.dark nav {
-  /* Dark mode: glass effect */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.35);
-  border-bottom: 1px solid var(--navbar-border);
-}
-
-/* Desktop-only: ensure the collapsed/mobile menu's background doesn't cover the navbar on md+ screens */
+/* Desktop-only: transparent menu backgrounds */
 @media (min-width: 768px) {
-  /* Make the inner menu container and anchors transparent so the nav root background shows */
   nav #navbar-sticky,
   nav #navbar-sticky ul,
   nav #navbar-sticky li,
@@ -251,13 +209,12 @@ html.dark nav {
   }
 }
 
-/* Remove visible focus ring for the theme toggle button but preserve keyboard focus via focus-visible outline if needed */
+/* Focus ring management */
 .no-focus-ring:focus {
   outline: none !important;
   box-shadow: none !important;
 }
 .no-focus-ring:focus-visible {
-  /* keep a subtle outline for keyboard users; adjust or remove if you prefer */
   outline: 2px solid rgba(59, 130, 246, 0.25);
   outline-offset: 2px;
 }
