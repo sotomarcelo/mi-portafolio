@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" rx="24" fill="#0b1220"/>
+  <rect x="26" y="26" width="1148" height="648" rx="20" fill="url(#g1)" opacity="0.25"/>
+  <rect x="70" y="90" width="1060" height="90" rx="14" fill="#0f172a" opacity="0.9"/>
+  <rect x="90" y="116" width="260" height="40" rx="8" fill="#38bdf8" opacity="0.65"/>
+  <rect x="70" y="220" width="500" height="380" rx="16" fill="#0f172a" opacity="0.85"/>
+  <rect x="620" y="220" width="510" height="180" rx="16" fill="#0f172a" opacity="0.85"/>
+  <rect x="620" y="420" width="510" height="180" rx="16" fill="#0f172a" opacity="0.85"/>
+  <text x="90" y="72" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="30" font-weight="700">Proyecto: API y Pipelines</text>
+  <text x="96" y="278" fill="#7dd3fc" font-family="Arial, sans-serif" font-size="24">Django + PostgreSQL</text>
+</svg>

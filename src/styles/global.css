@@ -6,12 +6,18 @@
 body {
   background-color: #f9fafb; /* Tailwind bg-gray-50 */
   color: #1f2937; /* Tailwind text-gray-800 */
+  background-image: radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.08), transparent 35%),
+    radial-gradient(circle at 90% 90%, rgba(16, 185, 129, 0.08), transparent 40%);
+  background-attachment: fixed;
 }
 
 /* Dark mode overrides when .dark is present on <html> */
 html.dark body {
   background-color: #0f172a; /* Tailwind bg-gray-900 */
   color: #e5e7eb; /* Tailwind text-gray-200 */
+  background-image: radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.09), transparent 35%),
+    radial-gradient(circle at 90% 90%, rgba(59, 130, 246, 0.1), transparent 40%);
+  background-attachment: fixed;
 }
 
 /* Links: only unstyled anchors, so button-like links keep their utility colors */
@@ -92,22 +98,37 @@ html.dark {
   background: transparent;
 }
 
-/* Inicio readability guard: keeps text dark in light mode and bright in dark mode */
+/* Inicio readability guard: keep strong contrast over white backgrounds */
+.inicio-readable .card-root {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(148, 163, 184, 0.35);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.09);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.inicio-readable .card-root:hover {
+  transform: translateY(-2px);
+}
+
 .inicio-readable .card-root h3,
 .inicio-readable .card-root h5,
 .inicio-readable .card-root p,
 .inicio-readable .card-root time,
-.inicio-readable .card-root li,
-.inicio-readable .card-root span {
+.inicio-readable .card-root li {
   color: #111827;
+}
+
+html.dark .inicio-readable .card-root {
+  background-color: rgba(15, 23, 42, 0.72);
+  border-color: rgba(71, 85, 105, 0.52);
+  box-shadow: 0 16px 30px rgba(2, 6, 23, 0.4);
 }
 
 html.dark .inicio-readable .card-root h3,
 html.dark .inicio-readable .card-root h5,
 html.dark .inicio-readable .card-root p,
 html.dark .inicio-readable .card-root time,
-html.dark .inicio-readable .card-root li,
-html.dark .inicio-readable .card-root span {
+html.dark .inicio-readable .card-root li {
   color: #f9fafb;
 }
 
@@ -131,14 +152,24 @@ html.dark {
 
 /* Navbar variables */
 :root {
-  --navbar-bg: #ffffff; /* bg-white */
+  --navbar-bg: rgba(255, 255, 255, 0.74);
   --navbar-color: #111827; /* text-gray-900 */
-  --navbar-border: #e5e7eb; /* border-gray-200 */
+  --navbar-border: rgba(148, 163, 184, 0.3);
 }
 html.dark {
-  --navbar-bg: #0b1220; /* slightly darker than gray-900 */
+  --navbar-bg: rgba(11, 18, 32, 0.72);
   --navbar-color: #e5e7eb; /* text-gray-200 */
-  --navbar-border: #374151; /* gray-700 */
+  --navbar-border: rgba(71, 85, 105, 0.45);
+}
+
+nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+html.dark nav {
+  box-shadow: 0 10px 24px rgba(2, 6, 23, 0.35);
 }
 
 /* Desktop-only: ensure the collapsed/mobile menu's background doesn't cover the navbar on md+ screens */

@@ -3,6 +3,27 @@ import Layout from '../Layout.astro';
 import Card from '../components/Card.astro';
 import CarruselTechs from '../components/CarruselTechs.astro';
 import '../styles/global.css';
+
+const projectPreviews = [
+  {
+    title: 'API y Pipelines de Datos',
+    summary: 'Backend y procesamiento de datos con validacion y transformacion.',
+    href: '/proyectos',
+    image: '/projects/proyecto-api.svg',
+  },
+  {
+    title: 'Dashboard Operativo',
+    summary: 'Indicadores y visualizacion para seguimiento de eficiencia.',
+    href: '/proyectos',
+    image: '/projects/proyecto-dashboard.svg',
+  },
+  {
+    title: 'ETL y NLP',
+    summary: 'Automatizacion de extraccion, limpieza y analisis de texto.',
+    href: '/proyectos',
+    image: '/projects/proyecto-etl.svg',
+  },
+];
 ---
 
 <Layout>
@@ -36,51 +57,47 @@ import '../styles/global.css';
             </span>
           </div>
 
+          <div class="flex flex-wrap gap-2">
+            <span class="inline-flex rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200">
+              Backend + Datos
+            </span>
+            <span class="inline-flex rounded-md bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-200">
+              Valdivia, Chile
+            </span>
+            <span class="inline-flex rounded-md bg-violet-50 px-2.5 py-1 text-xs font-medium text-violet-700 dark:bg-violet-900/30 dark:text-violet-200">
+              Python | Django | SQL
+            </span>
+          </div>
+
           <div class="mt-auto pt-2 flex items-center gap-4">
-            <!-- Social icons (placeholder links) -->
+            <!-- Social links -->
             <a
-              href="#"
-              class="text-gray-500 hover:text-blue-700 transition-colors dark:text-gray-300 dark:hover:text-blue-400"
-              aria-label="Twitter"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
-                ><path
-                  d="M8 19c7.333 0 11.333-6.083 11.333-11.333v-.516A8.097 8.097 0 0021 5.5a7.75 7.75 0 01-2.167.6A3.778 3.778 0 0020.333 4a7.583 7.583 0 01-2.417.917A3.79 3.79 0 0013.5 3c-2.083 0-3.75 1.667-3.75 3.75 0 .292.042.583.125.833A10.75 10.75 0 013 4.917a3.75 3.75 0 001.167 5 3.708 3.708 0 01-1.708-.458v.042c0 1.833 1.25 3.333 2.917 3.667a3.778 3.778 0 01-1.7.083c.5 1.667 2 2.875 3.75 2.917A7.583 7.583 0 013 17.917C4.667 18.833 6.5 19 8 19"
-                ></path></svg
-              >
-            </a>
-            <a
-              href="#"
-              class="text-gray-500 hover:text-pink-600 transition-colors dark:text-gray-300 dark:hover:text-pink-400"
-              aria-label="Instagram"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
-                ><path
-                  d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6a5 5 0 100 10 5 5 0 000-10z"
-                ></path></svg
-              >
-            </a>
-            <a
-              href="#"
-              class="text-gray-500 hover:text-gray-900 transition-colors dark:text-gray-300 dark:hover:text-white"
+              href="https://github.com/sotomarcelo"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-2.5 py-1.5 text-sm text-slate-700 transition-colors hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
               aria-label="GitHub"
             >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
                 ><path
                   d="M12 .5a12 12 0 00-3.79 23.4c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.58-4.04-1.58-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.23 1.83 1.23 1.07 1.82 2.8 1.29 3.48.99.11-.77.42-1.29.76-1.59-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 016 0C17.3 4.2 18.3 4.5 18.3 4.5c.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.6-2.8 5.63-5.47 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0012 .5"
                 ></path></svg
               >
+              GitHub
             </a>
             <a
-              href="#"
-              class="text-gray-500 hover:text-blue-700 transition-colors dark:text-gray-300 dark:hover:text-blue-400"
+              href="https://www.linkedin.com/in/marcelo-soto-barria-30765720b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-2.5 py-1.5 text-sm text-slate-700 transition-colors hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
               aria-label="LinkedIn"
             >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
                 ><path
                   d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.4h.1C13.7 8.8 15.7 8 18 8 22 8 24 10.2 24 14.7V24h-5v-8.3c0-2-1.2-3-2.6-3-1.5 0-2.2 1-2.2 3V24H8V8z"
                 ></path></svg
               >
+              LinkedIn
             </a>
           </div>
         </div>
@@ -162,27 +179,115 @@ import '../styles/global.css';
         id="proyectos"
         title="Proyectos"
         colorClass="border-green-400 dark:border-green-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-1 sm:col-span-4 sm:row-start-5 sm:row-span-4"
-        content="Algunos de mis proyectos destacados en desarrollo web, aplicaciones y más."
-        showButton={true}
-        buttonText="Ver proyectos"
-        buttonHref="/proyectos"
-      />
+      >
+        <div
+          class="project-preview relative mt-2 h-44 sm:h-48 overflow-hidden rounded-xl border border-slate-200/80 dark:border-slate-700/80"
+          data-project-preview
+        >
+          {
+            projectPreviews.map((project, index) => (
+              <article
+                class={`project-slide group relative h-full ${index === 0 ? '' : 'hidden'}`}
+                data-project-slide
+              >
+                <img src={project.image} alt={project.title} class="h-full w-full object-cover" loading="lazy" />
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-3 py-2">
+                  <p class="text-sm font-medium text-white">{project.title}</p>
+                </div>
+
+                <div class="absolute inset-0 bg-slate-900/65 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+                  <div class="flex h-full flex-col justify-end gap-2 p-3">
+                    <p class="text-sm font-semibold text-white">{project.title}</p>
+                    <p class="text-xs text-slate-200">{project.summary}</p>
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex w-fit items-center rounded-md bg-emerald-500 px-2.5 py-1 text-xs font-medium text-white hover:bg-emerald-600"
+                    >
+                      Ir al proyecto
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))
+          }
+
+          <button
+            type="button"
+            data-project-prev
+            class="absolute left-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/35 text-white hover:bg-black/55"
+            aria-label="Proyecto anterior"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                d="M12.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 111.414 1.414L9.414 10l3.293 3.293a1 1 0 010 1.414z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            data-project-next
+            class="absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/35 text-white hover:bg-black/55"
+            aria-label="Siguiente proyecto"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+
+          <div class="absolute inset-x-0 bottom-1.5 flex items-center justify-center gap-1.5" aria-hidden="true">
+            {
+              projectPreviews.map((_, index) => (
+                <button
+                  type="button"
+                  data-project-dot
+                  data-project-index={index}
+                  class={`h-1.5 w-1.5 rounded-full ${index === 0 ? 'bg-emerald-400' : 'bg-white/55'}`}
+                  aria-label={`Ir al proyecto ${index + 1}`}
+                ></button>
+              ))
+            }
+          </div>
+        </div>
+      </Card>
       <!-- D: Contacto -->
       <Card
         id="contactame"
         title="Contáctame"
         colorClass="border-yellow-400 dark:border-yellow-500 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-5 sm:col-span-4 sm:row-start-5 sm:row-span-4"
-        content="¿Tienes un proyecto o quieres colaborar? Escríbeme y conversemos sobre cómo puedo ayudar."
         showButton={true}
         buttonText="Ir a contacto"
         buttonHref="/contactame"
-      />
+      >
+        <p class="text-sm text-gray-700 dark:text-gray-300">
+          Si tienes una idea o necesitas apoyo tecnico, conversemos y armamos un plan accionable.
+        </p>
+        <div class="mt-3 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+          <p>Email: marcelo@example.com</p>
+          <p>Respuesta estimada: 24 - 48 horas</p>
+        </div>
+      </Card>
       <!-- E: 2x2 -->
       <Card
-        title="E"
+        title="Enfoque"
         colorClass="border-purple-400 dark:border-purple-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-9 sm:col-span-4 sm:row-start-5 sm:row-span-4"
-        content="Columna E"
-      />
+      >
+        <p class="text-sm text-gray-700 dark:text-gray-300">
+          Trabajo con una mezcla de ingenieria de software y analitica para entregar soluciones utiles,
+          trazables y faciles de mantener.
+        </p>
+        <div class="mt-3 grid grid-cols-1 gap-2 text-sm text-gray-700 dark:text-gray-300">
+          <span class="rounded-md bg-white/80 px-2 py-1 dark:bg-slate-800/70">Codigo limpio y documentado</span>
+          <span class="rounded-md bg-white/80 px-2 py-1 dark:bg-slate-800/70">Automatizacion de procesos</span>
+          <span class="rounded-md bg-white/80 px-2 py-1 dark:bg-slate-800/70">Enfoque en impacto real</span>
+        </div>
+      </Card>
       <!-- F: 6x1 -->
       <Card
         title="Mi Stack"
@@ -325,10 +430,110 @@ import '../styles/global.css';
       });
     }
 
+    function initProjectPreview() {
+      var previewRoot = document.querySelector('[data-project-preview]');
+      var slides = Array.prototype.slice.call(document.querySelectorAll('[data-project-slide]'));
+      var prevBtn = document.querySelector('[data-project-prev]');
+      var nextBtn = document.querySelector('[data-project-next]');
+      var dots = Array.prototype.slice.call(document.querySelectorAll('[data-project-dot]'));
+      if (!slides.length || !previewRoot) return;
+
+      var current = 0;
+      var timerId = null;
+      var lastWheelAt = 0;
+
+      function render(index) {
+        slides.forEach(function (slide, i) {
+          if (i === index) {
+            slide.classList.remove('hidden');
+          } else {
+            slide.classList.add('hidden');
+          }
+        });
+
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('bg-emerald-400', i === index);
+          dot.classList.toggle('bg-white/55', i !== index);
+        });
+      }
+
+      function goNext() {
+        current = (current + 1) % slides.length;
+        render(current);
+      }
+
+      function goPrev() {
+        current = (current - 1 + slides.length) % slides.length;
+        render(current);
+      }
+
+      function restartAuto() {
+        if (timerId) clearInterval(timerId);
+        timerId = setInterval(goNext, 3200);
+      }
+
+      function stopAuto() {
+        if (timerId) {
+          clearInterval(timerId);
+          timerId = null;
+        }
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+          goNext();
+          restartAuto();
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+          goPrev();
+          restartAuto();
+        });
+      }
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          var idx = Number(dot.getAttribute('data-project-index') || '0');
+          current = idx;
+          render(current);
+          restartAuto();
+        });
+      });
+
+      previewRoot.addEventListener(
+        'wheel',
+        function (event) {
+          event.preventDefault();
+          var now = Date.now();
+          if (now - lastWheelAt < 240) return;
+          lastWheelAt = now;
+
+          if (event.deltaY > 0) {
+            goNext();
+          } else {
+            goPrev();
+          }
+          restartAuto();
+        },
+        { passive: false }
+      );
+
+      previewRoot.addEventListener('mouseenter', stopAuto);
+      previewRoot.addEventListener('mouseleave', restartAuto);
+
+      restartAuto();
+    }
+
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initTechModal);
+      document.addEventListener('DOMContentLoaded', function () {
+        initTechModal();
+        initProjectPreview();
+      });
     } else {
       initTechModal();
+      initProjectPreview();
     }
   })();
 </script>
