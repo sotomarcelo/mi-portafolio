@@ -261,16 +261,63 @@ const projectPreviews = [
         id="contactame"
         title="Contáctame"
         colorClass="border-yellow-400 dark:border-yellow-500 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-5 sm:col-span-4 sm:row-start-5 sm:row-span-4"
-        showButton={true}
-        buttonText="Ir a contacto"
-        buttonHref="/contactame"
       >
-        <p class="text-sm text-gray-700 dark:text-gray-300">
-          Si tienes una idea o necesitas apoyo tecnico, conversemos y armamos un plan accionable.
-        </p>
-        <div class="mt-3 space-y-1 text-sm text-gray-700 dark:text-gray-300">
-          <p>Email: marcelo@example.com</p>
-          <p>Respuesta estimada: 24 - 48 horas</p>
+        <div class="flex h-full flex-col gap-3">
+          <p class="text-sm text-gray-700 dark:text-gray-300">
+            Si tienes una idea o necesitas apoyo tecnico, escribeme por el canal que prefieras.
+          </p>
+
+          <div class="rounded-lg border border-slate-200 bg-white/90 p-2.5 dark:border-slate-700 dark:bg-slate-800/70">
+            <div class="flex items-center gap-2.5">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path d="M2.94 5.5A2 2 0 014.83 4h10.34a2 2 0 011.89 1.5L10 9.88 2.94 5.5z"></path>
+                  <path d="M18 8.12l-7.48 4.64a1 1 0 01-1.04 0L2 8.12V14a2 2 0 002 2h12a2 2 0 002-2V8.12z"></path>
+                </svg>
+              </span>
+              <div class="min-w-0 flex-1">
+                <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Correo</p>
+                <p class="truncate text-sm text-slate-800 dark:text-slate-100">contacto.sotomarcelo@gmail.com</p>
+              </div>
+              <a
+                href="mailto:contacto.sotomarcelo@gmail.com"
+                class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 text-slate-600 transition-colors hover:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700"
+                aria-label="Abrir correo"
+                title="Abrir correo"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h7a1 1 0 010 2H5v10h10v-6a1 1 0 112 0v7a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm11-1a1 1 0 000 2h1.586l-4.293 4.293a1 1 0 001.414 1.414L17 6.414V8a1 1 0 102 0V4a1 1 0 00-1-1h-4z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="rounded-lg border border-slate-200 bg-white/90 p-2.5 dark:border-slate-700 dark:bg-slate-800/70">
+            <div class="flex items-center gap-2.5">
+              <span class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.149-.198.298-.767.968-.94 1.166-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.787-1.48-1.759-1.653-2.056-.173-.297-.018-.458.13-.606.135-.135.297-.347.446-.52.15-.174.198-.298.298-.497.1-.198.05-.372-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.57-.01-.198 0-.52.075-.792.372-.272.298-1.04 1.016-1.04 2.48 0 1.463 1.065 2.877 1.213 3.075.149.198 2.095 3.2 5.076 4.487.711.307 1.266.49 1.698.627.713.227 1.362.195 1.875.118.572-.086 1.758-.719 2.007-1.413.248-.695.248-1.29.173-1.413-.075-.124-.272-.198-.57-.347z"></path>
+                  <path d="M20.52 3.478A11.947 11.947 0 0012.042 0C5.462 0 .104 5.357.104 11.938c0 2.104.55 4.159 1.595 5.969L0 24l6.26-1.643a11.95 11.95 0 005.782 1.474h.005c6.58 0 11.938-5.357 11.938-11.938a11.89 11.89 0 00-3.465-8.415zM12.047 21.82h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.713.974.99-3.62-.235-.372a9.83 9.83 0 01-1.505-5.27c.002-5.42 4.413-9.83 9.835-9.83 2.626.001 5.096 1.024 6.952 2.88a9.77 9.77 0 012.883 6.956c-.002 5.422-4.414 9.832-9.83 9.832z"></path>
+                </svg>
+              </span>
+              <div class="min-w-0 flex-1">
+                <p class="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">WhatsApp</p>
+                <p class="truncate text-sm text-slate-800 dark:text-slate-100">+56 9 4289 6509</p>
+              </div>
+              <a
+                href="https://wa.me/56942896509"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 text-slate-600 transition-colors hover:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-700"
+                aria-label="Abrir WhatsApp"
+                title="Abrir WhatsApp"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h7a1 1 0 010 2H5v10h10v-6a1 1 0 112 0v7a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm11-1a1 1 0 000 2h1.586l-4.293 4.293a1 1 0 001.414 1.414L17 6.414V8a1 1 0 102 0V4a1 1 0 00-1-1h-4z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </Card>
       <!-- E: 2x2 -->

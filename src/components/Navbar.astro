@@ -4,7 +4,6 @@ const pathname = Astro.url.pathname;
 const isInicio = pathname === '/' || pathname === '/inicio' || pathname === '/home';
 const isExperiencia = pathname.startsWith('/experiencia');
 const isProyectos = pathname.startsWith('/proyectos');
-const isContactame = pathname.startsWith('/contactame');
 
 const linkClass = (isActive: boolean) =>
   `block py-2 px-3 rounded-sm md:p-0 transition-colors ${
@@ -104,9 +103,8 @@ const linkClass = (isActive: boolean) =>
           </li>
           <li>
             <a
-              href="/contactame"
-              class={linkClass(isContactame)}
-              aria-current={isContactame ? 'page' : undefined}
+              href="/inicio#contactame"
+              class={linkClass(false)}
               >Contactame</a
             >
           </li>
