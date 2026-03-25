@@ -64,7 +64,8 @@ const statusColor: Record<string, string> = {
     <!-- Background blobs -->
     <div class="pointer-events-none absolute inset-0 -z-10">
       <div class="absolute -top-12 -left-16 h-72 w-72 rounded-full bg-success/10 blur-3xl"></div>
-      <div class="absolute -bottom-16 -right-12 h-80 w-80 rounded-full bg-primary/10 blur-3xl"></div>
+      <div class="absolute -bottom-16 -right-12 h-80 w-80 rounded-full bg-primary/10 blur-3xl">
+      </div>
     </div>
 
     <div class="mx-auto max-w-5xl space-y-10">
@@ -99,7 +100,9 @@ const statusColor: Record<string, string> = {
                   loading="lazy"
                 />
                 <div class="absolute top-3 left-3">
-                  <span class={`badge ${statusColor[project.status] || 'badge-ghost'} badge-sm font-semibold`}>
+                  <span
+                    class={`badge ${statusColor[project.status] || 'badge-ghost'} badge-sm font-semibold`}
+                  >
                     {project.status}
                   </span>
                 </div>
@@ -121,8 +124,17 @@ const statusColor: Record<string, string> = {
                       class="btn btn-primary btn-sm gap-1.5"
                     >
                       Ver proyecto
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h7a1 1 0 010 2H5v10h10v-6a1 1 0 112 0v7a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm11-1a1 1 0 000 2h1.586l-4.293 4.293a1 1 0 001.414 1.414L17 6.414V8a1 1 0 102 0V4a1 1 0 00-1-1h-4z" clip-rule="evenodd" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-3.5 w-3.5"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M3 4a1 1 0 011-1h7a1 1 0 010 2H5v10h10v-6a1 1 0 112 0v7a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm11-1a1 1 0 000 2h1.586l-4.293 4.293a1 1 0 001.414 1.414L17 6.414V8a1 1 0 102 0V4a1 1 0 00-1-1h-4z"
+                          clip-rule="evenodd"
+                        />
                       </svg>
                     </a>
                   </div>
@@ -141,16 +153,37 @@ const statusColor: Record<string, string> = {
             other.map((project) => (
               <article class="card bg-base-100 shadow-md border border-base-300 p-5 flex flex-col gap-3 transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg">
                 <div class="flex items-center justify-between gap-2">
-                  <span class={`badge ${statusColor[project.status] || 'badge-ghost'} badge-sm font-semibold`}>
+                  <span
+                    class={`badge ${statusColor[project.status] || 'badge-ghost'} badge-sm font-semibold`}
+                  >
                     {project.status}
                   </span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-base-content/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-base-content/30"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"
+                    />
                   </svg>
                 </div>
-                <h3 class="text-base font-semibold text-base-content leading-snug">{project.title}</h3>
-                <p class="text-sm text-base-content/70 leading-relaxed flex-1">{project.description}</p>
+                <h3 class="text-base font-semibold text-base-content leading-snug">
+                  {project.title}
+                </h3>
+                <p class="text-sm text-base-content/70 leading-relaxed flex-1">
+                  {project.description}
+                </p>
                 <div class="flex flex-wrap gap-1.5 mt-auto pt-1">
                   {project.stack.map((tech) => (
                     <span class="badge badge-outline badge-sm text-xs">{tech}</span>
