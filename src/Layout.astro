@@ -2,13 +2,13 @@
 import Navbar from './components/Navbar.astro';
 ---
 
-<html lang="en">
+<html lang="es" data-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Mi Portafolio</title>
     <script>
-      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      // Prevent FOUC: set data-theme before first paint
       (function () {
         try {
           var stored = localStorage.getItem('color-theme');
@@ -16,150 +16,76 @@ import Navbar from './components/Navbar.astro';
             stored === 'dark' ||
             (stored === null && window.matchMedia('(prefers-color-scheme: dark)').matches)
           ) {
-            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
           } else {
-            document.documentElement.classList.remove('dark');
+            document.documentElement.setAttribute('data-theme', 'light');
           }
         } catch (e) {
-          // localStorage might be unavailable in some environments (privacy modes)
-          // fallback to prefers-color-scheme
           if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
           }
         }
       })();
     </script>
   </head>
-  <body class="bg-white text-black dark:bg-gray-900 dark:text-white">
+  <body class="bg-base-100 text-base-content min-h-screen">
     <Navbar />
     <script>
-      // Initialize theme toggle: attach handlers and set initial icon state
+      // Theme toggle handler
       (function () {
         function initThemeToggle() {
-          try {
-            var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-            var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-            var themeToggleBtn = document.getElementById('theme-toggle');
-            if (!themeToggleDarkIcon || !themeToggleLightIcon || !themeToggleBtn) {
-              // Elements not yet in DOM
-              // console.debug('Theme toggle: elements not found yet');
-              return false;
-            }
+          const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+          const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+          const themeToggleBtn = document.getElementById('theme-toggle');
+          if (!themeToggleDarkIcon || !themeToggleLightIcon || !themeToggleBtn) return;
 
-            var stored = null;
-            try {
-              stored = localStorage.getItem('color-theme');
-            } catch (e) {
-              stored = null;
-            }
-
-            // Set initial icon state
-            if (
-              stored === 'dark' ||
-              (stored === null &&
-                window.matchMedia &&
-                window.matchMedia('(prefers-color-scheme: dark)').matches)
-            ) {
-              themeToggleLightIcon.classList.remove('hidden');
-            } else {
-              themeToggleDarkIcon.classList.remove('hidden');
-            }
-            console.log(
-              '[theme] init: html has dark=',
-              document.documentElement.classList.contains('dark'),
-              ' local=',
-              stored
-            );
-
-            // Attach click handler
-            themeToggleBtn.addEventListener('click', function () {
-              if (themeToggleDarkIcon && themeToggleDarkIcon.classList)
-                themeToggleDarkIcon.classList.toggle('hidden');
-              if (themeToggleLightIcon && themeToggleLightIcon.classList)
-                themeToggleLightIcon.classList.toggle('hidden');
-
-              try {
-                var current = localStorage.getItem('color-theme');
-                if (current) {
-                  if (current === 'light') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                  }
-                } else {
-                  if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                  } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                  }
-                }
-              } catch (e) {
-                // localStorage may be unavailable; toggle the class only
-                if (document.documentElement.classList.contains('dark')) {
-                  document.documentElement.classList.remove('dark');
-                } else {
-                  document.documentElement.classList.add('dark');
-                }
-              }
-              console.log(
-                '[theme] click: html has dark=',
-                document.documentElement.classList.contains('dark'),
-                ' local=',
-                (function () {
-                  try {
-                    return localStorage.getItem('color-theme');
-                  } catch (e) {
-                    return 'err';
-                  }
-                })()
-              );
-            });
-
-            // success
-            // console.debug('Theme toggle: initialized');
-            return true;
-          } catch (err) {
-            console.error('Theme toggle init error:', err);
-            return false;
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          if (isDark) {
+            themeToggleLightIcon.classList.remove('hidden');
+          } else {
+            themeToggleDarkIcon.classList.remove('hidden');
           }
+
+          themeToggleBtn.addEventListener('click', function () {
+            themeToggleDarkIcon!.classList.toggle('hidden');
+            themeToggleLightIcon!.classList.toggle('hidden');
+
+            var current = document.documentElement.getAttribute('data-theme');
+            var next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            try {
+              localStorage.setItem('color-theme', next);
+            } catch (e) {}
+          });
         }
 
-        // If DOM already parsed, try to init immediately; otherwise wait for DOMContentLoaded
         if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', function () {
-            // try init; if elements not ready yet, ignore
-            initThemeToggle();
-          });
+          document.addEventListener('DOMContentLoaded', initThemeToggle);
         } else {
-          // document already parsed
           initThemeToggle();
         }
       })();
     </script>
     <script>
-      // Lightweight mobile navbar toggle (fallback when Flowbite JS is not loaded)
+      // Mobile navbar toggle
       (function () {
         function initNavbarToggle() {
-          var toggleBtn = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
-          var menu = document.getElementById('navbar-sticky');
+          const toggleBtn = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
+          const menu = document.getElementById('navbar-sticky');
           if (!toggleBtn || !menu) return;
 
           toggleBtn.addEventListener('click', function () {
-            var isHidden = menu.classList.contains('hidden');
-            menu.classList.toggle('hidden');
-            toggleBtn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+            var isHidden = menu!.classList.contains('hidden');
+            menu!.classList.toggle('hidden');
+            toggleBtn!.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
           });
 
           var navLinks = menu.querySelectorAll('a[href]');
           navLinks.forEach(function (link) {
             link.addEventListener('click', function () {
               if (window.innerWidth < 768) {
-                menu.classList.add('hidden');
-                toggleBtn.setAttribute('aria-expanded', 'false');
+                menu!.classList.add('hidden');
+                toggleBtn!.setAttribute('aria-expanded', 'false');
               }
             });
           });

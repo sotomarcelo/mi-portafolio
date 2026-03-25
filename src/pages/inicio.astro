@@ -41,7 +41,7 @@ const projectPreviews = [
 
 <Layout>
   <section
-    class="inicio-readable flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 py-4 pt-24"
+    class="inicio-readable flex flex-col items-center justify-center min-h-screen bg-base-200 py-4 pt-24"
     style={`min-height:unset;height:100vh;`}
   >
     <!-- Título eliminado por solicitud del usuario -->
@@ -53,40 +53,28 @@ const projectPreviews = [
       <!-- A: Sobre mí (formato personalizado) -->
       <Card
         title="Sobre mí"
-        colorClass="border-blue-400 dark:border-blue-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-1 sm:col-span-6 sm:row-start-1 sm:row-span-4"
+        colorClass="border-blue-400 col-span-1 row-span-1 sm:col-start-1 sm:col-span-6 sm:row-start-1 sm:row-span-4"
       >
         <div class="flex flex-col gap-3 h-full">
-          <h3 class="text-2xl font-extrabold tracking-tight text-black dark:text-white">
-            Marcelo Soto
-          </h3>
-          <p class="text-sm leading-relaxed text-black dark:text-gray-200">
+          <h3 class="text-2xl font-extrabold tracking-tight text-base-content">Marcelo Soto</h3>
+          <p class="text-sm leading-relaxed text-base-content/80">
             Soy Ingeniero de Desarrollo Fullstack con foco en productos utiles, datos y
             automatizacion.
           </p>
 
-          <div class="mt-2 flex items-center gap-3 text-black dark:text-white">
-            <span
-              class="status-chip inline-flex items-center gap-2 px-3 py-1 rounded-lg border border-emerald-400 bg-emerald-100 text-sm font-bold text-black shadow-sm dark:border-emerald-500/50 dark:bg-emerald-500/15 dark:text-emerald-200"
-            >
+          <div class="mt-2 flex items-center gap-3 text-base-content">
+            <span class="badge badge-success badge-outline gap-2 px-3 py-3 text-sm font-bold">
               <span class="w-2 h-2 rounded-full bg-emerald-600 inline-block animate-pulse"></span>
               Disponible para nuevos proyectos
             </span>
           </div>
 
           <div class="flex flex-wrap gap-2">
-            <span
-              class="inline-flex rounded-md bg-sky-100 border border-sky-300 px-2.5 py-1 text-xs font-bold text-black dark:bg-slate-800 dark:border-transparent dark:text-slate-200"
-            >
-              Backend + Datos
-            </span>
-            <span
-              class="inline-flex rounded-md bg-amber-100 border border-amber-300 px-2.5 py-1 text-xs font-bold text-black dark:bg-blue-900/30 dark:border-transparent dark:text-blue-200"
-            >
+            <span class="badge badge-info badge-outline text-xs font-bold"> Backend + Datos </span>
+            <span class="badge badge-warning badge-outline text-xs font-bold">
               Valdivia, Chile
             </span>
-            <span
-              class="inline-flex rounded-md bg-violet-100 border border-violet-300 px-2.5 py-1 text-xs font-bold text-black dark:bg-violet-900/30 dark:border-transparent dark:text-violet-200"
-            >
+            <span class="badge badge-secondary badge-outline text-xs font-bold">
               Python | Django | SQL
             </span>
           </div>
@@ -97,7 +85,7 @@ const projectPreviews = [
               href="https://github.com/sotomarcelo"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-black shadow-sm transition-colors hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+              class="btn btn-outline btn-sm gap-2"
               aria-label="GitHub"
             >
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
@@ -111,7 +99,7 @@ const projectPreviews = [
               href="https://www.linkedin.com/in/marcelo-soto-barria-30765720b/"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 rounded-md border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-black shadow-sm transition-colors hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+              class="btn btn-outline btn-sm gap-2"
               aria-label="LinkedIn"
             >
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
@@ -127,58 +115,54 @@ const projectPreviews = [
       <!-- B: Experiencia (Roadmap) -->
       <Card
         title="Mi experiencia"
-        colorClass="border-pink-400 dark:border-pink-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-7 sm:col-span-6 sm:row-start-1 sm:row-span-4"
+        colorClass="border-pink-400 col-span-1 row-span-1 sm:col-start-7 sm:col-span-6 sm:row-start-1 sm:row-span-4"
       >
         <div class="relative">
           <div class="experience-scroll">
-            <ol
-              class="relative border-s border-gray-200 dark:border-gray-700 ml-2 mt-2 transition-all duration-200"
-            >
+            <ol class="relative border-s border-base-300 ml-2 mt-2 transition-all duration-200">
               <li class="mb-4 ms-4">
                 <div
-                  class="absolute w-3 h-3 bg-blue-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-blue-600 dark:border-gray-900"
+                  class="absolute w-3 h-3 bg-blue-400 rounded-full mt-1.5 -start-1.5 border border-base-100"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-black dark:text-gray-400"
+                <time class="mb-1 text-xs font-normal leading-none text-base-content/60"
                   >nov. 2024 - Actualidad</time
                 >
-                <p class="text-sm font-semibold text-black dark:text-white">
+                <p class="text-sm font-semibold text-base-content">
                   Ingeniero de Desarrollo - Innovex SpA
                 </p>
               </li>
               <li class="mb-4 ms-4">
                 <div
-                  class="absolute w-3 h-3 bg-pink-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-pink-600 dark:border-gray-900"
+                  class="absolute w-3 h-3 bg-pink-400 rounded-full mt-1.5 -start-1.5 border border-base-100"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-black dark:text-gray-400"
+                <time class="mb-1 text-xs font-normal leading-none text-base-content/60"
                   >sep. 2023 - jun. 2024</time
                 >
-                <p class="text-sm font-semibold text-black dark:text-white">
-                  Analista de Datos - EQUANS
-                </p>
+                <p class="text-sm font-semibold text-base-content">Analista de Datos - EQUANS</p>
               </li>
               <li class="mb-4 ms-4">
                 <div
-                  class="absolute w-3 h-3 bg-green-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-green-600 dark:border-gray-900"
+                  class="absolute w-3 h-3 bg-green-400 rounded-full mt-1.5 -start-1.5 border border-base-100"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-black dark:text-gray-400"
+                <time class="mb-1 text-xs font-normal leading-none text-base-content/60"
                   >ene. 2021 - sep. 2023</time
                 >
-                <p class="text-sm font-semibold text-black dark:text-white">
+                <p class="text-sm font-semibold text-base-content">
                   Colaborador y Tesista - SOPHIA
                 </p>
               </li>
               <li class="ms-4">
                 <div
-                  class="absolute w-3 h-3 bg-yellow-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-yellow-600 dark:border-gray-900"
+                  class="absolute w-3 h-3 bg-yellow-400 rounded-full mt-1.5 -start-1.5 border border-base-100"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-black dark:text-gray-400"
+                <time class="mb-1 text-xs font-normal leading-none text-base-content/60"
                   >ene. 2019 - feb. 2019</time
                 >
-                <p class="text-sm font-semibold text-black dark:text-white">
+                <p class="text-sm font-semibold text-base-content">
                   Encargado de Trazabilidad - Framberry
                 </p>
               </li>
@@ -188,7 +172,7 @@ const projectPreviews = [
           <div slot="overlay">
             <a
               href="/experiencia"
-              class="absolute bottom-3 right-3 z-20 inline-flex items-center px-3 py-1.5 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600"
+              class="btn btn-primary btn-sm absolute bottom-3 right-3 z-20"
               aria-label="Ver más experiencia"
             >
               Ver detalle completo
@@ -200,10 +184,10 @@ const projectPreviews = [
       <Card
         id="proyectos"
         title="Proyectos"
-        colorClass="border-green-400 dark:border-green-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-1 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        colorClass="border-green-400 col-span-1 row-span-1 sm:col-start-1 sm:col-span-4 sm:row-start-5 sm:row-span-4"
       >
         <div
-          class="project-preview relative mt-2 h-44 sm:h-48 overflow-hidden rounded-xl border border-slate-200/80 dark:border-slate-700/80"
+          class="project-preview relative mt-2 h-44 sm:h-48 overflow-hidden rounded-xl border border-base-300"
           data-project-preview
         >
           {
@@ -217,13 +201,13 @@ const projectPreviews = [
                     <img
                       src={project.imageLight}
                       alt={project.title}
-                      class="h-full w-full object-cover object-top dark:hidden"
+                      class="h-full w-full object-cover object-top img-light"
                       loading="lazy"
                     />
                     <img
                       src={project.imageDark}
                       alt={project.title}
-                      class="h-full w-full object-cover object-top hidden dark:block"
+                      class="h-full w-full object-cover object-top img-dark"
                       loading="lazy"
                     />
                   </>
@@ -235,7 +219,7 @@ const projectPreviews = [
                     loading="lazy"
                   />
                 )}
-                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-3 py-2">
+                <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-slate-900/80 to-transparent px-3 py-2">
                   <p class="text-sm font-medium text-white">{project.title}</p>
                 </div>
 
@@ -317,19 +301,17 @@ const projectPreviews = [
       <Card
         id="contactame"
         title="Contáctame"
-        colorClass="border-yellow-400 dark:border-yellow-500 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-5 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        colorClass="border-yellow-400 col-span-1 row-span-1 sm:col-start-5 sm:col-span-4 sm:row-start-5 sm:row-span-4"
       >
         <div class="flex h-full flex-col gap-3">
-          <p class="text-sm text-black dark:text-gray-300">
+          <p class="text-sm text-base-content/70">
             Si tienes una idea o necesitas apoyo tecnico, escribeme por el canal que prefieras.
           </p>
 
-          <div
-            class="rounded-lg border border-yellow-300 bg-yellow-50 p-3 dark:border-slate-700 dark:bg-slate-800/70"
-          >
+          <div class="rounded-lg border border-base-300 bg-base-200 p-3">
             <div class="flex items-center gap-2.5">
               <span
-                class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-white border border-yellow-300 text-black shadow-sm dark:border-transparent dark:bg-blue-900/40 dark:text-blue-300"
+                class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-base-200 text-primary shadow-sm"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -346,18 +328,16 @@ const projectPreviews = [
                 </svg>
               </span>
               <div class="min-w-0 flex-1">
-                <p
-                  class="text-xs font-semibold uppercase tracking-wide text-black dark:text-slate-400"
-                >
+                <p class="text-xs font-semibold uppercase tracking-wide text-base-content/60">
                   Correo
                 </p>
-                <p class="truncate text-sm font-medium text-black dark:text-slate-100">
+                <p class="truncate text-sm font-medium text-base-content">
                   contacto.sotomarcelo@gmail.com
                 </p>
               </div>
               <a
                 href="mailto:contacto.sotomarcelo@gmail.com"
-                class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white text-black shadow-sm transition-colors hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+                class="btn btn-ghost btn-sm btn-square"
                 aria-label="Abrir correo"
                 title="Abrir correo"
               >
@@ -377,12 +357,10 @@ const projectPreviews = [
             </div>
           </div>
 
-          <div
-            class="rounded-lg border border-yellow-300 bg-yellow-50 p-3 dark:border-slate-700 dark:bg-slate-800/70"
-          >
+          <div class="rounded-lg border border-base-300 bg-base-200 p-3">
             <div class="flex items-center gap-2.5">
               <span
-                class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-white border border-yellow-300 text-black shadow-sm dark:border-transparent dark:bg-emerald-900/40 dark:text-emerald-300"
+                class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-base-200 text-success shadow-sm"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -400,20 +378,16 @@ const projectPreviews = [
                 </svg>
               </span>
               <div class="min-w-0 flex-1">
-                <p
-                  class="text-xs font-semibold uppercase tracking-wide text-black dark:text-slate-400"
-                >
+                <p class="text-xs font-semibold uppercase tracking-wide text-base-content/60">
                   WhatsApp
                 </p>
-                <p class="truncate text-sm font-medium text-black dark:text-slate-100">
-                  +56 9 4289 6509
-                </p>
+                <p class="truncate text-sm font-medium text-base-content">+56 9 4289 6509</p>
               </div>
               <a
                 href="https://wa.me/56942896509"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white text-black shadow-sm transition-colors hover:bg-slate-50 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+                class="btn btn-ghost btn-sm btn-square"
                 aria-label="Abrir WhatsApp"
                 title="Abrir WhatsApp"
               >
@@ -437,23 +411,20 @@ const projectPreviews = [
       <!-- E: 2x2 -->
       <Card
         title="Enfoque"
-        colorClass="border-purple-400 dark:border-purple-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-9 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        colorClass="border-purple-400 col-span-1 row-span-1 sm:col-start-9 sm:col-span-4 sm:row-start-5 sm:row-span-4"
       >
-        <p class="text-sm text-black dark:text-gray-300">
+        <p class="text-sm text-base-content/70">
           Trabajo con una mezcla de ingenieria de software y analitica para entregar soluciones
           utiles, trazables y faciles de mantener.
         </p>
-        <div class="mt-3 grid grid-cols-1 gap-2 text-sm text-black dark:text-gray-300">
-          <span
-            class="rounded-md bg-purple-100 border border-purple-300 px-2 py-1 text-black font-medium dark:border-transparent dark:bg-slate-800/70 dark:text-gray-300"
+        <div class="mt-3 grid grid-cols-1 gap-2 text-sm text-base-content/70">
+          <span class="badge badge-secondary badge-outline font-medium"
             >Codigo limpio y documentado</span
           >
-          <span
-            class="rounded-md bg-purple-100 border border-purple-300 px-2 py-1 text-black font-medium dark:border-transparent dark:bg-slate-800/70 dark:text-gray-300"
+          <span class="badge badge-secondary badge-outline font-medium"
             >Automatizacion de procesos</span
           >
-          <span
-            class="rounded-md bg-purple-100 border border-purple-300 px-2 py-1 text-black font-medium dark:border-transparent dark:bg-slate-800/70 dark:text-gray-300"
+          <span class="badge badge-secondary badge-outline font-medium"
             >Enfoque en impacto real</span
           >
         </div>
@@ -461,13 +432,13 @@ const projectPreviews = [
       <!-- F: 6x1 -->
       <Card
         title="Mi Stack"
-        colorClass="border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-1 sm:col-span-12 sm:row-start-9 sm:row-span-2"
+        colorClass="border-base-300 col-span-1 row-span-1 sm:col-start-1 sm:col-span-12 sm:row-start-9 sm:row-span-2"
       >
         <button
           type="button"
           slot="title-action"
           data-open-tech-modal
-          class="inline-flex h-8 w-8 items-center justify-center rounded-md border border-slate-300 bg-white text-black shadow-sm transition-colors hover:bg-slate-100 dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
+          class="btn btn-ghost btn-sm btn-square"
           aria-label="Ver stack completo"
           title="Ver stack completo"
         >
@@ -505,21 +476,21 @@ const projectPreviews = [
       <div data-tech-modal-backdrop class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
 
       <div
-        class="relative z-10 w-full max-w-3xl rounded-2xl border border-slate-200/70 bg-white/95 p-5 shadow-2xl dark:border-slate-700/70 dark:bg-slate-900/95"
+        class="relative z-10 w-full max-w-3xl rounded-2xl border border-base-300 bg-base-100 p-5 shadow-2xl"
       >
         <div class="flex items-start justify-between gap-3">
           <div>
-            <h2 id="tech-modal-title" class="text-xl font-bold text-black dark:text-white">
+            <h2 id="tech-modal-title" class="text-xl font-bold text-base-content">
               Tecnologias por categoria
             </h2>
-            <p class="mt-1 text-sm text-black dark:text-slate-300">
+            <p class="mt-1 text-sm text-base-content/70">
               Resumen del stack principal que utilizo en proyectos de desarrollo y datos.
             </p>
           </div>
           <button
             type="button"
             data-close-tech-modal
-            class="rounded-md border border-slate-300 px-2 py-1 text-sm text-black hover:bg-slate-100 dark:border-slate-600 dark:text-slate-300 dark:hover:bg-slate-800"
+            class="btn btn-ghost btn-sm"
             aria-label="Cerrar modal"
           >
             Cerrar
@@ -527,17 +498,10 @@ const projectPreviews = [
         </div>
 
         <div class="mt-4 grid gap-4 md:grid-cols-2">
-          <article
-            class="rounded-lg border border-cyan-200/80 bg-cyan-50/70 p-4 dark:border-cyan-800/70 dark:bg-cyan-950/20"
-          >
-            <h3
-              class="text-sm font-semibold uppercase tracking-wider text-black dark:text-cyan-200"
-            >
-              Frontend
-            </h3>
+          <article class="rounded-lg border border-info/30 bg-info/10 p-4">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-info">Frontend</h3>
             <div class="mt-2 flex flex-wrap gap-2">
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/react.svg"
                   alt="React"
@@ -545,8 +509,7 @@ const projectPreviews = [
                   loading="lazy"
                 />React</span
               >
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/nextjs.svg"
                   alt="Next.js"
@@ -554,8 +517,7 @@ const projectPreviews = [
                   loading="lazy"
                 />Next.js</span
               >
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/astro.svg"
                   alt="Astro"
@@ -563,8 +525,7 @@ const projectPreviews = [
                   loading="lazy"
                 />Astro</span
               >
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/html5.svg"
                   alt="HTML5"
@@ -572,8 +533,7 @@ const projectPreviews = [
                   loading="lazy"
                 />HTML5</span
               >
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/css3.svg"
                   alt="CSS3"
@@ -581,8 +541,7 @@ const projectPreviews = [
                   loading="lazy"
                 />CSS3</span
               >
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/tailwindcss.svg"
                   alt="Tailwind CSS"
@@ -593,17 +552,10 @@ const projectPreviews = [
             </div>
           </article>
 
-          <article
-            class="rounded-lg border border-emerald-200/80 bg-emerald-50/70 p-4 dark:border-emerald-800/70 dark:bg-emerald-950/20"
-          >
-            <h3
-              class="text-sm font-semibold uppercase tracking-wider text-black dark:text-emerald-200"
-            >
-              Backend
-            </h3>
+          <article class="rounded-lg border border-success/30 bg-success/10 p-4">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-success">Backend</h3>
             <div class="mt-2 flex flex-wrap gap-2">
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/python.svg"
                   alt="Python"
@@ -611,8 +563,7 @@ const projectPreviews = [
                   loading="lazy"
                 />Python</span
               >
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/django.svg"
                   alt="Django"
@@ -623,17 +574,12 @@ const projectPreviews = [
             </div>
           </article>
 
-          <article
-            class="rounded-lg border border-indigo-200/80 bg-indigo-50/70 p-4 dark:border-indigo-800/70 dark:bg-indigo-950/20 md:col-span-2"
-          >
-            <h3
-              class="text-sm font-semibold uppercase tracking-wider text-black dark:text-indigo-200"
-            >
+          <article class="rounded-lg border border-accent/30 bg-accent/10 p-4 md:col-span-2">
+            <h3 class="text-sm font-semibold uppercase tracking-wider text-accent">
               Datos y Analitica
             </h3>
             <div class="mt-2 flex flex-wrap gap-2">
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/postgresql.svg"
                   alt="PostgreSQL"
@@ -641,8 +587,7 @@ const projectPreviews = [
                   loading="lazy"
                 />PostgreSQL</span
               >
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/mongodb.svg"
                   alt="MongoDB"
@@ -650,8 +595,7 @@ const projectPreviews = [
                   loading="lazy"
                 />MongoDB</span
               >
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/elasticsearch.svg"
                   alt="Elasticsearch"
@@ -659,8 +603,7 @@ const projectPreviews = [
                   loading="lazy"
                 />Elasticsearch</span
               >
-              <span
-                class="inline-flex items-center gap-1.5 rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-black dark:bg-slate-800 dark:text-slate-200"
+              <span class="badge badge-ghost gap-1.5"
                 ><img
                   src="/icons/jupyter.svg"
                   alt="Jupyter"
@@ -679,21 +622,21 @@ const projectPreviews = [
 <script>
   (function () {
     function initTechModal() {
-      var modal = document.getElementById('tech-modal');
-      var openBtn = document.querySelector('[data-open-tech-modal]');
-      var closeBtn = document.querySelector('[data-close-tech-modal]');
-      var backdrop = modal ? modal.querySelector('[data-tech-modal-backdrop]') : null;
+      const modal = document.getElementById('tech-modal');
+      const openBtn = document.querySelector('[data-open-tech-modal]');
+      const closeBtn = document.querySelector('[data-close-tech-modal]');
+      const backdrop = modal ? modal.querySelector('[data-tech-modal-backdrop]') : null;
       if (!modal || !openBtn || !closeBtn || !backdrop) return;
 
       function openModal() {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
+        modal!.classList.remove('hidden');
+        modal!.classList.add('flex');
         document.body.style.overflow = 'hidden';
       }
 
       function closeModal() {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+        modal!.classList.add('hidden');
+        modal!.classList.remove('flex');
         document.body.style.overflow = '';
       }
 
@@ -702,7 +645,7 @@ const projectPreviews = [
       backdrop.addEventListener('click', closeModal);
 
       document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+        if (event.key === 'Escape' && !modal!.classList.contains('hidden')) {
           closeModal();
         }
       });
@@ -717,10 +660,10 @@ const projectPreviews = [
       if (!slides.length || !previewRoot) return;
 
       var current = 0;
-      var timerId = null;
+      var timerId: ReturnType<typeof setInterval> | null = null;
       var lastWheelAt = 0;
 
-      function render(index) {
+      function render(index: number) {
         slides.forEach(function (slide, i) {
           if (i === index) {
             slide.classList.remove('hidden');
@@ -780,7 +723,7 @@ const projectPreviews = [
         });
       });
 
-      previewRoot.addEventListener(
+      (previewRoot as HTMLElement).addEventListener(
         'wheel',
         function (event) {
           event.preventDefault();

@@ -7,7 +7,7 @@ import '../styles/global.css';
 
 <Layout>
   <section
-    class="inicio-readable flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 py-4 pt-24"
+    class="inicio-readable flex flex-col items-center justify-center min-h-screen bg-base-200 py-4 pt-24"
     style={`min-height:unset;height:100vh;`}
   >
     <!-- Título eliminado por solicitud del usuario -->
@@ -18,57 +18,57 @@ import '../styles/global.css';
     >
       <Card
         title="Experiencia"
-        colorClass="border-pink-400 dark:border-pink-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-7 sm:col-span-6 sm:row-start-1 sm:row-span-4"
+        colorClass="border-pink-400 col-span-1 row-span-1 sm:col-start-7 sm:col-span-6 sm:row-start-1 sm:row-span-4"
       >
         <div class="relative">
           <!-- Default slot: contenido del card -->
           <div class="experience-scroll">
-            <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-2 mt-2">
+            <ol class="relative border-s border-base-300 ml-2 mt-2">
               <li class="mb-4 ms-4">
                 <div
-                  class="absolute w-3 h-3 bg-blue-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-blue-600 dark:border-gray-900"
+                  class="absolute w-3 h-3 bg-blue-400 rounded-full mt-1.5 -start-1.5 border border-base-100"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-black dark:text-gray-400"
+                <time class="mb-1 text-xs font-normal leading-none text-base-content/60"
                   >nov. 2024 - Actualidad</time
                 >
-                <p class="text-sm font-semibold text-black dark:text-white">
+                <p class="text-sm font-semibold text-base-content">
                   Ingeniero de Desarrollo - Innovex SpA
                 </p>
               </li>
               <li class="mb-4 ms-4">
                 <div
-                  class="absolute w-3 h-3 bg-pink-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-pink-600 dark:border-gray-900"
+                  class="absolute w-3 h-3 bg-pink-400 rounded-full mt-1.5 -start-1.5 border border-base-100"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-black dark:text-gray-400"
+                <time class="mb-1 text-xs font-normal leading-none text-base-content/60"
                   >sep. 2023 - jun. 2024</time
                 >
-                <p class="text-sm font-semibold text-black dark:text-white">
+                <p class="text-sm font-semibold text-base-content">
                   Analista de Datos - EQUANS
                 </p>
               </li>
               <li class="mb-4 ms-4">
                 <div
-                  class="absolute w-3 h-3 bg-green-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-green-600 dark:border-gray-900"
+                  class="absolute w-3 h-3 bg-green-400 rounded-full mt-1.5 -start-1.5 border border-base-100"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-black dark:text-gray-400"
+                <time class="mb-1 text-xs font-normal leading-none text-base-content/60"
                   >ene. 2021 - sep. 2023</time
                 >
-                <p class="text-sm font-semibold text-black dark:text-white">
+                <p class="text-sm font-semibold text-base-content">
                   Colaborador y Tesista - SOPHIA
                 </p>
               </li>
               <li class="ms-4">
                 <div
-                  class="absolute w-3 h-3 bg-yellow-200 rounded-full mt-1.5 -start-1.5 border border-white dark:bg-yellow-600 dark:border-gray-900"
+                  class="absolute w-3 h-3 bg-yellow-400 rounded-full mt-1.5 -start-1.5 border border-base-100"
                 >
                 </div>
-                <time class="mb-1 text-xs font-normal leading-none text-black dark:text-gray-400"
+                <time class="mb-1 text-xs font-normal leading-none text-base-content/60"
                   >ene. 2019 - feb. 2019</time
                 >
-                <p class="text-sm font-semibold text-black dark:text-white">
+                <p class="text-sm font-semibold text-base-content">
                   Encargado de Trazabilidad - Framberry
                 </p>
               </li>
@@ -79,7 +79,7 @@ import '../styles/global.css';
           <div slot="overlay">
             <a
               href="/experiencia"
-              class="absolute bottom-3 right-3 z-20 inline-flex items-center px-3 py-1.5 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600"
+              class="btn btn-primary btn-sm absolute bottom-3 right-3 z-20"
               aria-label="Ver más experiencia"
             >
               Ver detalle completo
@@ -92,7 +92,7 @@ import '../styles/global.css';
       <Card
         id="proyectos"
         title="Proyectos"
-        colorClass="border-green-400 dark:border-green-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-1 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        colorClass="border-green-400 col-span-1 row-span-1 sm:col-start-1 sm:col-span-4 sm:row-start-5 sm:row-span-4"
         content="Algunos de mis proyectos destacados en desarrollo web, aplicaciones y más."
         showButton={true}
         buttonText="Ver proyectos"
@@ -102,7 +102,7 @@ import '../styles/global.css';
       <Card
         id="contactame"
         title="Contáctame"
-        colorClass="border-yellow-400 dark:border-yellow-500 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-5 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        colorClass="border-yellow-400 col-span-1 row-span-1 sm:col-start-5 sm:col-span-4 sm:row-start-5 sm:row-span-4"
         content="¿Tienes un proyecto o quieres colaborar? Escríbeme y conversemos sobre cómo puedo ayudar."
         showButton={true}
         buttonText="Ir a contacto"
@@ -111,13 +111,13 @@ import '../styles/global.css';
       <!-- E: 2x2 -->
       <Card
         title="E"
-        colorClass="border-purple-400 dark:border-purple-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-9 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        colorClass="border-purple-400 col-span-1 row-span-1 sm:col-start-9 sm:col-span-4 sm:row-start-5 sm:row-span-4"
         content="Columna E"
       />
       <!-- F: 6x1 -->
       <Card
         title="Tecnologías"
-        colorClass="border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-800 col-span-1 row-span-1 sm:col-start-1 sm:col-span-12 sm:row-start-9 sm:row-span-2"
+        colorClass="border-base-300 col-span-1 row-span-1 sm:col-start-1 sm:col-span-12 sm:row-start-9 sm:row-span-2"
       >
         <div class="w-full sm:pb-8">
           <CarruselTechs />

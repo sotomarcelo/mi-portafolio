@@ -1,22 +1,22 @@
 ---
 import { Icon } from 'astro-icon/components';
 const iconList = [
-  { name: 'react', file: 'react.svg', color: 'text-sky-400 dark:text-sky-300' },
-  { name: 'nextjs', file: 'nextjs.svg', color: 'text-black dark:text-white' },
-  { name: 'astro', file: 'astro.svg', color: 'text-orange-400 dark:text-orange-300' },
-  { name: 'python', file: 'python.svg', color: 'text-yellow-400 dark:text-yellow-300' },
-  { name: 'mongodb', file: 'mongodb.svg', color: 'text-green-600 dark:text-green-400' },
-  { name: 'postgresql', file: 'postgresql.svg', color: 'text-blue-700 dark:text-blue-400' },
-  { name: 'django', file: 'django.svg', color: 'text-green-700 dark:text-green-300' },
-  { name: 'html5', file: 'html5.svg', color: 'text-orange-500 dark:text-orange-300' },
-  { name: 'css3', file: 'css3.svg', color: 'text-blue-600 dark:text-blue-400' },
-  { name: 'tailwindcss', file: 'tailwindcss.svg', color: 'text-sky-400 dark:text-sky-300' },
+  { name: 'react', file: 'react.svg', color: 'text-sky-400' },
+  { name: 'nextjs', file: 'nextjs.svg', color: 'text-base-content' },
+  { name: 'astro', file: 'astro.svg', color: 'text-orange-400' },
+  { name: 'python', file: 'python.svg', color: 'text-yellow-400' },
+  { name: 'mongodb', file: 'mongodb.svg', color: 'text-green-500' },
+  { name: 'postgresql', file: 'postgresql.svg', color: 'text-blue-500' },
+  { name: 'django', file: 'django.svg', color: 'text-green-500' },
+  { name: 'html5', file: 'html5.svg', color: 'text-orange-400' },
+  { name: 'css3', file: 'css3.svg', color: 'text-blue-500' },
+  { name: 'tailwindcss', file: 'tailwindcss.svg', color: 'text-sky-400' },
   {
     name: 'elasticsearch',
     file: 'elasticsearch.svg',
-    color: 'text-orange-500 dark:text-orange-300',
+    color: 'text-orange-400',
   },
-  { name: 'jupyter', file: 'jupyter.svg', color: 'text-orange-500 dark:text-orange-300' },
+  { name: 'jupyter', file: 'jupyter.svg', color: 'text-orange-400' },
 ];
 ---
 
@@ -32,7 +32,7 @@ const iconList = [
         [0, 1, 2].map(() =>
           iconList.map((item) => (
             <div
-              class="hover:scale-110 transition-transform flex items-center justify-center dark:filter-none"
+              class="hover:scale-110 transition-transform flex items-center justify-center "
               style="min-width:3.5rem;"
             >
               {item.file ? (

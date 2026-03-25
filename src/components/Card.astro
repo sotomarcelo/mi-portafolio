@@ -1,5 +1,6 @@
 ---
 export interface Props {
+  id?: string;
   title?: string;
   colorClass?: string;
   content?: string;
@@ -8,6 +9,7 @@ export interface Props {
   buttonHref?: string;
 }
 const {
+  id,
   title = '',
   colorClass = '',
   content = '',
@@ -20,8 +22,8 @@ const {
 
 <div
   {...rest}
-  class={`card-root relative h-full w-full p-4 border rounded-lg shadow-sm bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between ${colorClass}`}
-  style={`background-color: var(--card-bg); border-color: var(--card-border);`}
+  id={id}
+  class={`card bg-base-100 shadow-md border border-base-300 relative h-full w-full p-4 flex flex-col justify-between ${colorClass}`}
 >
   <!-- Inner content wrapper -->
   <div class="card-inner">
@@ -29,20 +31,17 @@ const {
       {
         title ? (
           <div class="mb-2 flex items-center justify-between gap-2">
-            <h5 class="text-xl font-bold tracking-tight text-black dark:text-white">{title}</h5>
+            <h5 class="text-xl font-bold tracking-tight text-base-content">{title}</h5>
             <slot name="title-action" />
           </div>
         ) : null
       }
-      {content ? <p class="mb-3 font-normal text-black dark:text-gray-400">{content}</p> : null}
+      {content ? <p class="mb-3 font-normal text-base-content/70">{content}</p> : null}
       <slot />
     </div>
     {
       showButton && (
-        <a
-          href={buttonHref}
-          class="mt-2 inline-block px-4 py-2 bg-blue-600 !text-white rounded hover:bg-blue-700 text-sm text-center transition-colors dark:bg-blue-500 dark:hover:bg-blue-600"
-        >
+        <a href={buttonHref} class="btn btn-primary btn-sm mt-2">
           {buttonText}
         </a>
       )
