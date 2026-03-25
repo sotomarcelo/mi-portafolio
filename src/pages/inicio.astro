@@ -6,6 +6,19 @@ import '../styles/global.css';
 
 const projectPreviews = [
   {
+    title: 'P.U.L.S.O — Monitoreo',
+    summary: 'Backend Django para ingesta y consulta de datos de sensores en tiempo real.',
+    href: '/proyectos',
+    imageLight: '/dashboard_pulso_claro.png',
+    imageDark: '/dashboard_pulso_oscuro.png',
+  },
+  {
+    title: 'Pasaporte del Cafe',
+    summary: 'Comunidad colaborativa para evaluar cafes de especialidad, granos y preparaciones.',
+    href: '/proyectos',
+    image: '/pasaporte_del_cafe.png',
+  },
+  {
     title: 'API y Pipelines de Datos',
     summary: 'Backend y procesamiento de datos con validacion y transformacion.',
     href: '/proyectos',
@@ -199,12 +212,29 @@ const projectPreviews = [
                 class={`project-slide group relative h-full ${index === 0 ? '' : 'hidden'}`}
                 data-project-slide
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  class="h-full w-full object-cover"
-                  loading="lazy"
-                />
+                {project.imageLight ? (
+                  <>
+                    <img
+                      src={project.imageLight}
+                      alt={project.title}
+                      class="h-full w-full object-cover object-top dark:hidden"
+                      loading="lazy"
+                    />
+                    <img
+                      src={project.imageDark}
+                      alt={project.title}
+                      class="h-full w-full object-cover object-top hidden dark:block"
+                      loading="lazy"
+                    />
+                  </>
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    class="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                )}
                 <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 to-transparent px-3 py-2">
                   <p class="text-sm font-medium text-white">{project.title}</p>
                 </div>
