@@ -8,6 +8,7 @@ const projectPreviews = [
   {
     title: 'P.U.L.S.O — Monitoreo',
     summary: 'Backend Django para ingesta y consulta de datos de sensores en tiempo real.',
+    stack: ['Django', 'DRF', 'PostgreSQL', 'WebSockets'],
     href: '/proyectos',
     imageLight: '/dashboard_pulso_claro.png',
     imageDark: '/dashboard_pulso_oscuro.png',
@@ -15,24 +16,28 @@ const projectPreviews = [
   {
     title: 'Pasaporte del Cafe',
     summary: 'Comunidad colaborativa para evaluar cafes de especialidad, granos y preparaciones.',
+    stack: ['Next.js', 'Django', 'Tailwind', 'PostgreSQL'],
     href: '/proyectos',
     image: '/pasaporte_del_cafe.png',
   },
   {
     title: 'API y Pipelines de Datos',
     summary: 'Backend y procesamiento de datos con validacion y transformacion.',
+    stack: ['Python', 'SQL', 'PostgreSQL'],
     href: '/proyectos',
     image: '/projects/proyecto-api.svg',
   },
   {
     title: 'Dashboard Operativo',
     summary: 'Indicadores y visualizacion para seguimiento de eficiencia.',
+    stack: ['Power BI', 'SQL', 'Python'],
     href: '/proyectos',
     image: '/projects/proyecto-dashboard.svg',
   },
   {
     title: 'ETL y NLP',
     summary: 'Automatizacion de extraccion, limpieza y analisis de texto.',
+    stack: ['Python', 'Pandas', 'spaCy'],
     href: '/proyectos',
     image: '/projects/proyecto-etl.svg',
   },
@@ -179,72 +184,18 @@ const projectPreviews = [
           </div>
         </div>
       </Card>
-      <!-- C: Proyectos -->
-      <Card
+      <!-- C: Proyectos (2/3) — imagen + info lado a lado -->
+      <div
         id="proyectos"
-        title="Proyectos"
-        colorClass="border-green-400 sm:col-start-1 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        class="card bg-base-100 shadow-md border border-base-300 border-green-400 relative h-full w-full p-4 flex flex-col sm:col-start-1 sm:col-span-8 sm:row-start-5 sm:row-span-4"
       >
-        <div
-          class="project-preview relative mt-2 h-44 sm:h-48 overflow-hidden rounded-xl border border-base-300"
-          data-project-preview
-        >
-          {
-            projectPreviews.map((project, index) => (
-              <article
-                class={`project-slide group relative h-full ${index === 0 ? '' : 'hidden'}`}
-                data-project-slide
-              >
-                {project.imageLight ? (
-                  <>
-                    <img
-                      src={project.imageLight}
-                      alt={project.title}
-                      class="h-full w-full object-cover object-top img-light"
-                      loading="lazy"
-                    />
-                    <img
-                      src={project.imageDark}
-                      alt={project.title}
-                      class="h-full w-full object-cover object-top img-dark"
-                      loading="lazy"
-                    />
-                  </>
-                ) : (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    class="h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                )}
-                <div class="absolute inset-x-0 bottom-0 bg-linear-to-t from-slate-900/80 to-transparent px-3 py-2">
-                  <p class="text-sm font-medium text-white">{project.title}</p>
-                </div>
-
-                <div class="absolute inset-0 bg-slate-900/65 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                  <div class="flex h-full flex-col justify-end gap-2 p-3">
-                    <p class="text-sm font-semibold text-white">{project.title}</p>
-                    <p class="text-xs text-slate-200">{project.summary}</p>
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex w-fit items-center rounded-md bg-emerald-500 px-2.5 py-1 text-xs font-medium text-white hover:bg-emerald-600"
-                    >
-                      Ir al proyecto
-                    </a>
-                  </div>
-                </div>
-              </article>
-            ))
-          }
-
-          <button
-            type="button"
-            data-project-prev
-            class="absolute left-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/35 text-white hover:bg-black/55"
-            aria-label="Proyecto anterior"
+        <div class="mb-2 flex items-center justify-between gap-2">
+          <h5 class="text-xl font-bold tracking-tight text-base-content">Proyectos</h5>
+          <a
+            href="/proyectos"
+            class="btn btn-ghost btn-sm btn-square"
+            aria-label="Ver todos los proyectos"
+            title="Ver todos"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -254,53 +205,154 @@ const projectPreviews = [
             >
               <path
                 fill-rule="evenodd"
-                d="M12.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 111.414 1.414L9.414 10l3.293 3.293a1 1 0 010 1.414z"
+                d="M3 4a1 1 0 011-1h7a1 1 0 010 2H5v10h10v-6a1 1 0 112 0v7a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm11-1a1 1 0 000 2h1.586l-4.293 4.293a1 1 0 001.414 1.414L17 6.414V8a1 1 0 102 0V4a1 1 0 00-1-1h-4z"
                 clip-rule="evenodd"></path>
             </svg>
-          </button>
+          </a>
+        </div>
 
-          <button
-            type="button"
-            data-project-next
-            class="absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/35 text-white hover:bg-black/55"
-            aria-label="Siguiente proyecto"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </button>
-
+        <div class="flex-1 flex flex-col sm:flex-row gap-3 min-h-0" data-project-preview>
+          <!-- Imagen del carrusel -->
           <div
-            class="absolute inset-x-0 bottom-1.5 flex items-center justify-center gap-1.5"
-            aria-hidden="true"
+            class="relative w-full sm:w-3/5 h-40 sm:h-auto overflow-hidden rounded-xl border border-base-300 shrink-0"
           >
             {
-              projectPreviews.map((_, index) => (
-                <button
-                  type="button"
-                  data-project-dot
-                  data-project-index={index}
-                  class={`h-1.5 w-1.5 rounded-full ${index === 0 ? 'bg-emerald-400' : 'bg-white/55'}`}
-                  aria-label={`Ir al proyecto ${index + 1}`}
-                />
+              projectPreviews.map((project, index) => (
+                <div
+                  class={`project-slide absolute inset-0 ${index === 0 ? '' : 'hidden'}`}
+                  data-project-slide
+                >
+                  {project.imageLight ? (
+                    <>
+                      <img
+                        src={project.imageLight}
+                        alt={project.title}
+                        class="h-full w-full object-cover object-top img-light"
+                        loading="lazy"
+                      />
+                      <img
+                        src={project.imageDark}
+                        alt={project.title}
+                        class="h-full w-full object-cover object-top img-dark"
+                        loading="lazy"
+                      />
+                    </>
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      class="h-full w-full object-cover object-center"
+                      loading="lazy"
+                    />
+                  )}
+                </div>
+              ))
+            }
+
+            <!-- Nav buttons -->
+            <button
+              type="button"
+              data-project-prev
+              class="absolute left-2 top-1/2 -translate-y-1/2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/35 text-white hover:bg-black/55 z-10"
+              aria-label="Proyecto anterior"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 111.414 1.414L9.414 10l3.293 3.293a1 1 0 010 1.414z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </button>
+            <button
+              type="button"
+              data-project-next
+              class="absolute right-2 top-1/2 -translate-y-1/2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-black/35 text-white hover:bg-black/55 z-10"
+              aria-label="Siguiente proyecto"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </button>
+
+            <!-- Dots -->
+            <div
+              class="absolute inset-x-0 bottom-2 flex items-center justify-center gap-1.5 z-10"
+              aria-hidden="true"
+            >
+              {
+                projectPreviews.map((_, index) => (
+                  <button
+                    type="button"
+                    data-project-dot
+                    data-project-index={index}
+                    class={`h-1.5 w-1.5 rounded-full transition-colors ${index === 0 ? 'bg-emerald-400' : 'bg-white/55'}`}
+                    aria-label={`Ir al proyecto ${index + 1}`}
+                  />
+                ))
+              }
+            </div>
+          </div>
+
+          <!-- Info panel (se actualiza con JS) -->
+          <div class="flex flex-col justify-between gap-2 sm:w-2/5 min-w-0">
+            {
+              projectPreviews.map((project, index) => (
+                <div
+                  class={`project-info flex flex-col gap-2 h-full ${index === 0 ? '' : 'hidden'}`}
+                  data-project-info
+                >
+                  <div>
+                    <p class="text-sm font-semibold text-base-content leading-snug">
+                      {project.title}
+                    </p>
+                    <p class="mt-1 text-xs text-base-content/70 leading-relaxed">
+                      {project.summary}
+                    </p>
+                  </div>
+                  <div class="flex flex-wrap gap-1 mt-auto">
+                    {project.stack.map((tech) => (
+                      <span class="badge badge-outline badge-xs text-[10px]">{tech}</span>
+                    ))}
+                  </div>
+                  <a href={project.href} class="btn btn-primary btn-xs w-fit gap-1">
+                    Ver proyecto
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-3 w-3"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                </div>
               ))
             }
           </div>
         </div>
-      </Card>
-      <!-- D: Contacto -->
+      </div>
+      <!-- D: Contacto (1/3) -->
       <Card
         id="contactame"
         title="Contáctame"
-        colorClass="border-yellow-400 sm:col-start-5 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        colorClass="border-yellow-400 sm:col-start-9 sm:col-span-4 sm:row-start-5 sm:row-span-4"
       >
         <div class="flex h-full flex-col gap-3">
           <p class="text-sm text-base-content/70">
@@ -405,27 +457,6 @@ const projectPreviews = [
               </a>
             </div>
           </div>
-        </div>
-      </Card>
-      <!-- E: 2x2 -->
-      <Card
-        title="Enfoque"
-        colorClass="border-purple-400 sm:col-start-9 sm:col-span-4 sm:row-start-5 sm:row-span-4"
-      >
-        <p class="text-sm text-base-content/70">
-          Trabajo con una mezcla de ingenieria de software y analitica para entregar soluciones
-          utiles, trazables y faciles de mantener.
-        </p>
-        <div class="mt-3 grid grid-cols-1 gap-2 text-sm text-base-content/70">
-          <span class="badge badge-secondary badge-outline font-medium"
-            >Codigo limpio y documentado</span
-          >
-          <span class="badge badge-secondary badge-outline font-medium"
-            >Automatizacion de procesos</span
-          >
-          <span class="badge badge-secondary badge-outline font-medium"
-            >Enfoque en impacto real</span
-          >
         </div>
       </Card>
       <!-- F: 6x1 -->
@@ -653,6 +684,7 @@ const projectPreviews = [
     function initProjectPreview() {
       var previewRoot = document.querySelector('[data-project-preview]');
       var slides = Array.prototype.slice.call(document.querySelectorAll('[data-project-slide]'));
+      var infoPanels = Array.prototype.slice.call(document.querySelectorAll('[data-project-info]'));
       var prevBtn = document.querySelector('[data-project-prev]');
       var nextBtn = document.querySelector('[data-project-next]');
       var dots = Array.prototype.slice.call(document.querySelectorAll('[data-project-dot]'));
@@ -668,6 +700,14 @@ const projectPreviews = [
             slide.classList.remove('hidden');
           } else {
             slide.classList.add('hidden');
+          }
+        });
+
+        infoPanels.forEach(function (panel, i) {
+          if (i === index) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
           }
         });
 
