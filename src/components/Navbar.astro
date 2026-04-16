@@ -80,7 +80,7 @@ const linkClass = (isActive: boolean) =>
         >
           <li>
             <a
-              href="/inicio"
+              href="/"
               class={linkClass(isInicio)}
               aria-current={isInicio ? 'page' : undefined}>Inicio</a
             >
@@ -105,7 +105,9 @@ const linkClass = (isActive: boolean) =>
 
     <!-- Right: Descargar CV -->
     <div class="flex items-center md:order-3">
-      <a href="/experiencia" class="btn btn-primary btn-xs sm:btn-sm">Ver CV</a>
+      <a href="/cv/marcelo-soto-cv.pdf" download class="btn btn-primary btn-xs sm:btn-sm">
+        Descargar CV
+      </a>
     </div>
   </div>
 </nav>

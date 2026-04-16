@@ -4,6 +4,16 @@ import '../styles/global.css';
 
 const featured = [
   {
+    title: 'MatchRoomie Chile',
+    stack: ['Next.js', 'Tailwind', 'PostgreSQL', 'Mapas', 'Matching'],
+    description:
+      'Plataforma para encontrar habitaciones, roomies compatibles y grupos de co-busqueda en Chile. Incluye perfil de convivencia, filtros por ubicacion y presupuesto, favoritos y flujo de publicacion.',
+    status: 'En produccion',
+    url: 'https://matchroomie.vercel.app/',
+    imageLight: '/dashboard_matchroomie_claro.png',
+    imageDark: '/dashboard_matchroomie_oscuro.png',
+  },
+  {
     title: 'P.U.L.S.O — Monitoreo de Sensores',
     stack: ['Django', 'DRF', 'PostgreSQL', 'WebSockets'],
     description:
@@ -24,32 +34,7 @@ const featured = [
   },
 ];
 
-const other = [
-  {
-    title: 'Pipeline de Datos para Operaciones',
-    stack: ['Python', 'SQL', 'PostgreSQL'],
-    description:
-      'Automatizacion de flujo de datos desde fuentes operativas hasta tablas consolidadas para analisis y reporting.',
-    status: 'Implementado',
-    icon: 'data',
-  },
-  {
-    title: 'API de Integracion en Django',
-    stack: ['Django', 'DRF', 'PostgreSQL'],
-    description:
-      'Diseno de endpoints para integrar datos entre sistemas internos y servicios externos con validaciones robustas.',
-    status: 'En produccion',
-    icon: 'api',
-  },
-  {
-    title: 'Dashboard de Indicadores Operativos',
-    stack: ['Power BI', 'SQL', 'Python'],
-    description:
-      'Diseno de indicadores y paneles ejecutivos para seguimiento semanal de eficiencia, tiempos y calidad operativa.',
-    status: 'Activo',
-    icon: 'chart',
-  },
-];
+const other = [];
 
 const statusColor: Record<string, string> = {
   'En produccion': 'badge-success',
@@ -147,7 +132,6 @@ const statusColor: Record<string, string> = {
 
       <!-- Other projects: compact list -->
       <div>
-        <h2 class="text-lg font-semibold text-base-content mb-4">Otros proyectos</h2>
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {
             other.map((project) => (

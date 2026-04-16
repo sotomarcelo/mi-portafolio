@@ -6,10 +6,19 @@ import '../styles/global.css';
 
 const projectPreviews = [
   {
+    title: 'MatchRoomie Chile',
+    summary:
+      'Plataforma para buscar habitaciones, encontrar roomies compatibles y coordinar co-busqueda de arriendo en Chile.',
+    stack: ['Next.js', 'Tailwind', 'PostgreSQL'],
+    href: 'https://matchroomie.vercel.app/',
+    imageLight: '/dashboard_matchroomie_claro.png',
+    imageDark: '/dashboard_matchroomie_oscuro.png',
+  },
+  {
     title: 'P.U.L.S.O — Monitoreo',
     summary: 'Backend Django para ingesta y consulta de datos de sensores en tiempo real.',
     stack: ['Django', 'DRF', 'PostgreSQL', 'WebSockets'],
-    href: '/proyectos',
+    href: 'http://tenten.innovex.cl:3001/',
     imageLight: '/dashboard_pulso_claro.png',
     imageDark: '/dashboard_pulso_oscuro.png',
   },
@@ -17,29 +26,7 @@ const projectPreviews = [
     title: 'Pasaporte del Cafe',
     summary: 'Comunidad colaborativa para evaluar cafes de especialidad, granos y preparaciones.',
     stack: ['Next.js', 'Django', 'Tailwind', 'PostgreSQL'],
-    href: '/proyectos',
     image: '/pasaporte_del_cafe.png',
-  },
-  {
-    title: 'API y Pipelines de Datos',
-    summary: 'Backend y procesamiento de datos con validacion y transformacion.',
-    stack: ['Python', 'SQL', 'PostgreSQL'],
-    href: '/proyectos',
-    image: '/projects/proyecto-api.svg',
-  },
-  {
-    title: 'Dashboard Operativo',
-    summary: 'Indicadores y visualizacion para seguimiento de eficiencia.',
-    stack: ['Power BI', 'SQL', 'Python'],
-    href: '/proyectos',
-    image: '/projects/proyecto-dashboard.svg',
-  },
-  {
-    title: 'ETL y NLP',
-    summary: 'Automatizacion de extraccion, limpieza y analisis de texto.',
-    stack: ['Python', 'Pandas', 'spaCy'],
-    href: '/proyectos',
-    image: '/projects/proyecto-etl.svg',
   },
 ];
 ---
@@ -57,13 +44,46 @@ const projectPreviews = [
       <!-- A: Sobre mí (formato personalizado) -->
       <Card
         title="Sobre mí"
-        colorClass="border-blue-400 sm:col-start-1 sm:col-span-6 sm:row-start-1 sm:row-span-4"
+        colorClass="sm:col-start-1 sm:col-span-6 sm:row-start-1 sm:row-span-4"
       >
         <div class="flex flex-col gap-3 h-full">
-          <h3 class="text-2xl font-extrabold tracking-tight text-base-content">Marcelo Soto</h3>
+          <div class="flex items-center justify-between gap-3">
+            <h3 class="text-2xl font-extrabold tracking-tight text-base-content">Marcelo Soto</h3>
+            <div class="flex items-center gap-2">
+              <a
+                href="https://github.com/sotomarcelo"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline btn-sm btn-square"
+                aria-label="GitHub"
+                title="GitHub"
+              >
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
+                  ><path
+                    d="M12 .5a12 12 0 00-3.79 23.4c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.58-4.04-1.58-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.23 1.83 1.23 1.07 1.82 2.8 1.29 3.48.99.11-.77.42-1.29.76-1.59-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 016 0C17.3 4.2 18.3 4.5 18.3 4.5c.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.6-2.8 5.63-5.47 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0012 .5"
+                  ></path></svg
+                >
+              </a>
+              <a
+                href="https://www.linkedin.com/in/marcelo-soto-barria-30765720b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline btn-sm btn-square"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+              >
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
+                  ><path
+                    d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.4h.1C13.7 8.8 15.7 8 18 8 22 8 24 10.2 24 14.7V24h-5v-8.3c0-2-1.2-3-2.6-3-1.5 0-2.2 1-2.2 3V24H8V8z"
+                  ></path></svg
+                >
+              </a>
+            </div>
+          </div>
           <p class="text-sm leading-relaxed text-base-content/80">
-            Soy Ingeniero de Desarrollo Fullstack con foco en productos utiles, datos y
-            automatizacion.
+            Ingeniero de Desarrollo Fullstack con foco en backend, datos y automatizacion.
+            Experiencia en Innovex y EQUANS creando soluciones para operaciones reales. Tambien hago
+            code vibing: prototipo rapido y mejora continua.
           </p>
 
           <div class="mt-2 flex items-center gap-3 text-base-content">
@@ -83,43 +103,12 @@ const projectPreviews = [
             </span>
           </div>
 
-          <div class="mt-auto pt-2 flex items-center gap-4">
-            <!-- Social links -->
-            <a
-              href="https://github.com/sotomarcelo"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-outline btn-sm gap-2"
-              aria-label="GitHub"
-            >
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
-                ><path
-                  d="M12 .5a12 12 0 00-3.79 23.4c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.58-4.04-1.58-.55-1.4-1.34-1.77-1.34-1.77-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.23 1.83 1.23 1.07 1.82 2.8 1.29 3.48.99.11-.77.42-1.29.76-1.59-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 016 0C17.3 4.2 18.3 4.5 18.3 4.5c.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.6-2.8 5.63-5.47 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12 12 0 0012 .5"
-                ></path></svg
-              >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/marcelo-soto-barria-30765720b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-outline btn-sm gap-2"
-              aria-label="LinkedIn"
-            >
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"
-                ><path
-                  d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.4h.1C13.7 8.8 15.7 8 18 8 22 8 24 10.2 24 14.7V24h-5v-8.3c0-2-1.2-3-2.6-3-1.5 0-2.2 1-2.2 3V24H8V8z"
-                ></path></svg
-              >
-              LinkedIn
-            </a>
-          </div>
         </div>
       </Card>
       <!-- B: Experiencia (Roadmap) -->
       <Card
         title="Mi experiencia"
-        colorClass="border-pink-400 sm:col-start-7 sm:col-span-6 sm:row-start-1 sm:row-span-4"
+        colorClass="sm:col-start-7 sm:col-span-6 sm:row-start-1 sm:row-span-4"
       >
         <div class="relative">
           <div class="experience-scroll">
@@ -187,28 +176,10 @@ const projectPreviews = [
       <!-- C: Proyectos (2/3) — imagen + info lado a lado -->
       <div
         id="proyectos"
-        class="card bg-base-100 shadow-md border border-base-300 border-green-400 relative h-full w-full p-4 flex flex-col sm:col-start-1 sm:col-span-8 sm:row-start-5 sm:row-span-4"
+        class="card bg-base-100 shadow-md border border-base-300 relative h-full w-full p-4 flex flex-col sm:col-start-1 sm:col-span-8 sm:row-start-5 sm:row-span-4"
       >
         <div class="mb-2 flex items-center justify-between gap-2">
           <h5 class="text-xl font-bold tracking-tight text-base-content">Proyectos</h5>
-          <a
-            href="/proyectos"
-            class="btn btn-ghost btn-sm btn-square"
-            aria-label="Ver todos los proyectos"
-            title="Ver todos"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-4 w-4"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M3 4a1 1 0 011-1h7a1 1 0 010 2H5v10h10v-6a1 1 0 112 0v7a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm11-1a1 1 0 000 2h1.586l-4.293 4.293a1 1 0 001.414 1.414L17 6.414V8a1 1 0 102 0V4a1 1 0 00-1-1h-4z"
-                clip-rule="evenodd"></path>
-            </svg>
-          </a>
         </div>
 
         <div class="flex-1 flex flex-col sm:flex-row gap-3 min-h-0" data-project-preview>
@@ -315,33 +286,23 @@ const projectPreviews = [
                   data-project-info
                 >
                   <div>
-                    <p class="text-sm font-semibold text-base-content leading-snug">
+                    <p class="text-base font-semibold text-base-content leading-snug">
                       {project.title}
                     </p>
-                    <p class="mt-1 text-xs text-base-content/70 leading-relaxed">
+                    <p class="mt-1 text-sm text-base-content/75 leading-relaxed">
                       {project.summary}
                     </p>
                   </div>
-                  <div class="flex flex-wrap gap-1 mt-auto">
-                    {project.stack.map((tech) => (
-                      <span class="badge badge-outline badge-xs text-[10px]">{tech}</span>
-                    ))}
-                  </div>
-                  <a href={project.href} class="btn btn-primary btn-xs w-fit gap-1">
-                    Ver proyecto
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-3 w-3"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
+                  {project.href && (
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm w-fit gap-1 mt-auto self-end"
                     >
-                      <path
-                        fill-rule="evenodd"
-                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clip-rule="evenodd"
-                      />
-                    </svg>
-                  </a>
+                      Ver proyecto
+                    </a>
+                  )}
                 </div>
               ))
             }
@@ -352,7 +313,7 @@ const projectPreviews = [
       <Card
         id="contactame"
         title="Contáctame"
-        colorClass="border-yellow-400 sm:col-start-9 sm:col-span-4 sm:row-start-5 sm:row-span-4"
+        colorClass="sm:col-start-9 sm:col-span-4 sm:row-start-5 sm:row-span-4"
       >
         <div class="flex h-full flex-col gap-3">
           <p class="text-sm text-base-content/70">
