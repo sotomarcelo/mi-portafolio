@@ -110,6 +110,14 @@ const projectPreviews = [
         title="Mi experiencia"
         colorClass="sm:col-start-7 sm:col-span-6 sm:row-start-1 sm:row-span-4"
       >
+        <a
+          slot="title-action"
+          href="/experiencia"
+          class="btn btn-primary btn-xs sm:btn-sm whitespace-nowrap"
+          aria-label="Ver más experiencia"
+        >
+          Ver detalle completo
+        </a>
         <div class="relative">
           <div class="experience-scroll">
             <ol class="relative border-s border-base-300 ml-2 mt-2 transition-all duration-200">
@@ -161,16 +169,6 @@ const projectPreviews = [
               </li>
             </ol>
           </div>
-          <!-- Botón fijo en la esquina inferior derecha del card (no desenfocado) -->
-          <div slot="overlay">
-            <a
-              href="/experiencia"
-              class="btn btn-primary btn-sm absolute bottom-3 right-3 z-20"
-              aria-label="Ver más experiencia"
-            >
-              Ver detalle completo
-            </a>
-          </div>
         </div>
       </Card>
       <!-- C: Proyectos (2/3) — imagen + info lado a lado -->
@@ -182,7 +180,11 @@ const projectPreviews = [
           <h5 class="text-xl font-bold tracking-tight text-base-content">Proyectos</h5>
         </div>
 
-        <div class="flex-1 flex flex-col sm:flex-row gap-3 min-h-0" data-project-preview>
+        <div
+          class="flex-1 flex flex-col sm:flex-row gap-3 min-h-0"
+          data-project-preview
+          style="touch-action: pan-y;"
+        >
           <!-- Imagen del carrusel -->
           <div
             class="relative w-full sm:w-3/5 h-40 sm:h-auto overflow-hidden rounded-xl border border-base-300 shrink-0"
@@ -278,11 +280,11 @@ const projectPreviews = [
           </div>
 
           <!-- Info panel (se actualiza con JS) -->
-          <div class="flex flex-col justify-between gap-2 sm:w-2/5 min-w-0">
+          <div class="relative h-[10.5rem] sm:h-full sm:w-2/5 min-w-0">
             {
               projectPreviews.map((project, index) => (
                 <div
-                  class={`project-info flex flex-col gap-2 h-full ${index === 0 ? '' : 'hidden'}`}
+                  class={`project-info relative flex flex-col gap-1.5 h-full overflow-hidden pb-11 ${index === 0 ? '' : 'hidden'} absolute inset-0 sm:static`}
                   data-project-info
                 >
                   <div>
@@ -298,7 +300,7 @@ const projectPreviews = [
                       href={project.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="btn btn-primary btn-sm w-fit gap-1 mt-auto self-end"
+                      class="btn btn-primary btn-sm w-fit gap-1 absolute bottom-0 right-0"
                     >
                       Ver proyecto
                     </a>
@@ -690,7 +692,7 @@ const projectPreviews = [
 
       function restartAuto() {
         if (timerId) clearInterval(timerId);
-        timerId = setInterval(goNext, 3200);
+        timerId = setInterval(goNext, 5000);
       }
 
       function stopAuto() {
@@ -739,6 +741,70 @@ const projectPreviews = [
           restartAuto();
         },
         { passive: false }
+      );
+
+      // Mobile: swipe support (horizontal only)
+      var touchStartX = 0;
+      var touchStartY = 0;
+      var touchTracking = false;
+      var touchIsHorizontal = false;
+
+      (previewRoot as HTMLElement).addEventListener(
+        'touchstart',
+        function (event) {
+          if (!event.touches || event.touches.length === 0) return;
+          var t = event.touches[0];
+          touchStartX = t.clientX;
+          touchStartY = t.clientY;
+          touchTracking = true;
+          touchIsHorizontal = false;
+        },
+        { passive: true }
+      );
+
+      (previewRoot as HTMLElement).addEventListener(
+        'touchmove',
+        function (event) {
+          if (!touchTracking || !event.touches || event.touches.length === 0) return;
+          var t = event.touches[0];
+          var dx = t.clientX - touchStartX;
+          var dy = t.clientY - touchStartY;
+
+          // Decide direction once user has moved a bit.
+          if (!touchIsHorizontal && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+            touchIsHorizontal = Math.abs(dx) > Math.abs(dy);
+          }
+
+          // If horizontal swipe, prevent page scroll "fighting" the gesture.
+          if (touchIsHorizontal) {
+            event.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+
+      (previewRoot as HTMLElement).addEventListener(
+        'touchend',
+        function (event) {
+          if (!touchTracking) return;
+          touchTracking = false;
+          if (!touchIsHorizontal) return;
+
+          var touch = (event.changedTouches && event.changedTouches[0]) || null;
+          if (!touch) return;
+
+          var dx = touch.clientX - touchStartX;
+          var SWIPE_THRESHOLD = 40;
+          if (Math.abs(dx) < SWIPE_THRESHOLD) return;
+
+          if (dx < 0) {
+            goNext();
+          } else {
+            goPrev();
+          }
+          restartAuto();
+        },
+        { passive: true }
       );
 
       previewRoot.addEventListener('mouseenter', stopAuto);

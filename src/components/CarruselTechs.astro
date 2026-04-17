@@ -21,12 +21,13 @@ const iconList = [
 ---
 
 <div
-  class="overflow-hidden w-full py-2 flex items-center justify-center"
+  class="tech-marquee overflow-hidden w-full py-2 flex items-center justify-center select-none"
   style="height:4.5rem;"
 >
   <div class="relative w-full h-16">
     <div
-      class="absolute top-0 left-0 flex animate-marquee gap-8 text-3xl sm:text-4xl whitespace-nowrap w-max"
+      class="tech-marquee-track absolute top-0 left-0 flex gap-8 text-3xl sm:text-4xl whitespace-nowrap w-max will-change-transform"
+      data-tech-marquee-track
     >
       {
         [0, 1, 2].map(() =>
@@ -39,6 +40,7 @@ const iconList = [
                 <img
                   src={`/icons/${item.file}`}
                   alt={item.name}
+                  draggable="false"
                   class={`w-10 h-10 sm:w-12 sm:h-12 ${item.color}`}
                   loading="lazy"
                 />
@@ -54,15 +56,187 @@ const iconList = [
 </div>
 
 <style is:global>
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-33.333%);
-    }
+  .tech-marquee {
+    cursor: grab;
+    touch-action: pan-y; /* allow vertical scroll; we handle horizontal drag */
   }
-  .animate-marquee {
-    animation: marquee 28s linear infinite;
+  .tech-marquee:active {
+    cursor: grabbing;
+  }
+  .tech-marquee img {
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
   }
 </style>
+
+<script>
+  (function () {
+    function initTechMarqueeDrag() {
+      var root = document.querySelector('.tech-marquee');
+      var track = document.querySelector('[data-tech-marquee-track]');
+      if (!root || !track) return;
+
+      var x = 0; // current translateX
+      var loopWidth = 0; // width of 1 sequence (since we render 3)
+
+      var rafId = 0;
+      var isDragging = false;
+      var pointerId = null;
+      var startX = 0;
+      var startY = 0;
+      var lastClientX = 0;
+      var lastClientY = 0;
+      var lastTs = 0;
+      var vx = 0; // px/ms
+      var isHorizontal = false;
+
+      // Auto scroll baseline (px/ms). Tuned to feel similar to previous 28s CSS animation.
+      var autoSpeed = -0.035;
+
+      function measure() {
+        // 3 repeats → one loop segment is ~1/3 of full scrollWidth
+        loopWidth = (track.scrollWidth || 0) / 3;
+        if (!Number.isFinite(loopWidth) || loopWidth <= 0) loopWidth = 0;
+      }
+
+      function normalize() {
+        if (!loopWidth) return;
+        // keep x in [-loopWidth, 0)
+        while (x <= -loopWidth) x += loopWidth;
+        while (x > 0) x -= loopWidth;
+      }
+
+      function render() {
+        normalize();
+        track.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
+      }
+
+      function tick(ts) {
+        if (!lastTs) lastTs = ts;
+        var dt = ts - lastTs;
+        lastTs = ts;
+
+        if (!isDragging) {
+          // autopilot + inertia
+          x += autoSpeed * dt;
+
+          // inertia decay (only when user has flicked)
+          if (Math.abs(vx) > 0.001) {
+            x += vx * dt;
+            vx *= Math.pow(0.92, dt / 16);
+          } else {
+            vx = 0;
+          }
+        }
+
+        render();
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function start() {
+        if (rafId) cancelAnimationFrame(rafId);
+        lastTs = 0;
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function stop() {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+
+      function onPointerDown(e) {
+        if (e.button != null && e.button !== 0) return;
+        measure();
+        if (!loopWidth) return;
+
+        isDragging = true;
+        pointerId = e.pointerId;
+        try {
+          root.setPointerCapture(pointerId);
+        } catch (err) {}
+
+        startX = e.clientX;
+        startY = e.clientY;
+        lastClientX = e.clientX;
+        lastClientY = e.clientY;
+        isHorizontal = false;
+        vx = 0;
+      }
+
+      function onPointerMove(e) {
+        if (!isDragging || pointerId !== e.pointerId) return;
+
+        var dx = e.clientX - startX;
+        var dy = e.clientY - startY;
+
+        // lock direction after a small move so we don't break page scrolling
+        if (!isHorizontal && (Math.abs(dx) > 6 || Math.abs(dy) > 6)) {
+          isHorizontal = Math.abs(dx) > Math.abs(dy);
+        }
+
+        if (!isHorizontal) return;
+
+        e.preventDefault();
+
+        // Move track with finger/mouse
+        var moveDx = e.clientX - lastClientX;
+        x += moveDx;
+
+        // Estimate velocity for inertia
+        var now = performance.now();
+        var dt = now - (lastTs || now);
+        if (dt > 0) {
+          // negative sign not needed; x already updated
+          vx = moveDx / dt;
+        }
+
+        lastClientX = e.clientX;
+        lastClientY = e.clientY;
+
+        render();
+      }
+
+      function onPointerUp(e) {
+        if (!isDragging || pointerId !== e.pointerId) return;
+        isDragging = false;
+        pointerId = null;
+
+        // Keep inertia only if gesture was horizontal
+        if (!isHorizontal) {
+          vx = 0;
+        } else {
+          // Amplify slightly to feel responsive on flick
+          vx *= 1.25;
+        }
+      }
+
+      // Init
+      measure();
+      render();
+      start();
+
+      // Events
+      root.addEventListener('pointerdown', onPointerDown);
+      root.addEventListener('pointermove', onPointerMove, { passive: false });
+      root.addEventListener('pointerup', onPointerUp);
+      root.addEventListener('pointercancel', onPointerUp);
+      window.addEventListener('resize', function () {
+        measure();
+        render();
+      });
+
+      // Stop animation if tab is hidden (saves battery)
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stop();
+        else start();
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTechMarqueeDrag);
+    } else {
+      initTechMarqueeDrag();
+    }
+  })();
+</script>
